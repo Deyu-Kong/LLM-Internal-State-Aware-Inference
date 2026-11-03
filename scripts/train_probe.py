@@ -41,7 +41,7 @@ def main():
     from fetch_pilot_assets import verify
 
     torch.set_num_threads(2)
-    torch.manual_seed(cfg["seed"])
+    torch.manual_seed(cfg["model_seed"])
     if gpu:
         assert torch.cuda.device_count() == 1
         torch.cuda.reset_peak_memory_stats()
@@ -150,7 +150,7 @@ def main():
                 negatives = sum(1-r["label"] for r in train)
                 positives = len(train) - negatives
                 pos_weight = torch.tensor([negatives/positives], device=device)
-                rng, order, offset, updates = random.Random(cfg["seed"]), [], 0, 0
+                rng, order, offset, updates = random.Random(cfg["model_seed"]), [], 0, 0
                 sync()
                 training_start = time.perf_counter()
                 for update in range(cfg["optimizer_steps"]):

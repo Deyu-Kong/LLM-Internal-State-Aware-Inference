@@ -11,11 +11,12 @@ FIELDS = {"experiment_id", "seed", "output_dir", "model_config", "source_file", 
 
 def load_training_config(path):
     cfg = yaml.safe_load(Path(path).read_text())
-    if not isinstance(cfg, dict) or set(cfg) != FIELDS:
+    if not isinstance(cfg, dict) or not FIELDS <= set(cfg) or set(cfg) - FIELDS - {"model_seed"}:
         raise ValueError("Unexpected or missing pilot configuration fields")
     if not isinstance(cfg["experiment_id"], str) or not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9_-]{0,79}", cfg["experiment_id"]):
         raise ValueError("Unsafe experiment ID")
-    bounds = {"seed": (0, 2**32-1), "train_roots": (1, 2000), "validation_roots": (1, 500), "per_root": (1, 16),
+    cfg.setdefault("model_seed", cfg["seed"])
+    bounds = {"seed": (0, 2**32-1), "model_seed": (0, 2**32-1), "train_roots": (1, 2000), "validation_roots": (1, 500), "per_root": (1, 16),
               "max_tokens": (16, 1024), "rank": (1, 16), "optimizer_steps": (1, 300),
               "gradient_accumulation": (1, 8), "max_wall_seconds": (1, 1800), "train_eval_limit": (1, 256)}
     for key, (lo, hi) in bounds.items():
