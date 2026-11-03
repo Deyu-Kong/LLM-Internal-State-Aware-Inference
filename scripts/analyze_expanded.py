@@ -13,6 +13,21 @@ from state_inference.metrics.binary import binary_metrics
 from state_inference.manifest import git_state
 
 
+def fast_auc(labels, scores):
+    ordered=sorted(zip(scores,labels))
+    positives=sum(labels);negatives=len(labels)-positives
+    if not positives or not negatives:return None
+    seen_negative=0;wins=0.0;i=0
+    while i<len(ordered):
+        j=i
+        while j<len(ordered) and ordered[j][0]==ordered[i][0]:j+=1
+        block_positive=sum(label for _,label in ordered[i:j])
+        block_negative=j-i-block_positive
+        wins+=block_positive*(seen_negative+0.5*block_negative)
+        seen_negative+=block_negative;i=j
+    return wins/(positives*negatives)
+
+
 def analyze(run_dirs, iterations=500):
     references=None
     output=[]
@@ -45,7 +60,7 @@ def analyze(run_dirs, iterations=500):
             indexes=[i for root in drawn for i in root_indexes[root]]
             ys=[labels[i] for i in indexes]
             if len(set(ys))==2:
-                auc_deltas.append(binary_metrics(ys,[scores[i] for i in indexes])['auroc']-binary_metrics(ys,[base[i] for i in indexes])['auroc'])
+                auc_deltas.append(fast_auc(ys,[scores[i] for i in indexes])-fast_auc(ys,[base[i] for i in indexes]))
             pairs=[pair for root in drawn for pair in pairs_by_root[root]]
             if pairs:pair_deltas.append(statistics.mean(pair_value(scores[a],scores[b])-pair_value(base[a],base[b]) for a,b in pairs))
         def interval(values):
