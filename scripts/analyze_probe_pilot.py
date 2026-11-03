@@ -81,8 +81,31 @@ def summarize(run_dirs, iterations=500):
                              'auroc_delta_vs_length': result['after']['validation']['auroc']-result['baselines']['length_position']['auroc'],
                              'root_bootstrap_95pct_delta': [deltas[int(.025*(len(deltas)-1))],deltas[int(.975*(len(deltas)-1))]] if deltas else None,
                              'bootstrap_replicates': len(deltas), 'note': 'Exploratory root-cluster bootstrap, not a formal test'})
+    control = None
+    indexed = {directory.name: (rows, preds) for directory, rows, preds, _ in runs}
+    pre = indexed.get('prm800k-control-pretrained-42')
+    rand = indexed.get('prm800k-control-random-42')
+    if pre and rand:
+        labels = [r['label'] for r in samples]
+        pre_scores = [pre[1][r['sample_id']]['trained_score'] for r in samples]
+        rand_scores = [rand[1][r['sample_id']]['trained_score'] for r in samples]
+        rng = random.Random(732)
+        roots = sorted(root_map)
+        deltas = []
+        for _ in range(iterations):
+            indexes = [i for _ in roots for i in root_map[rng.choice(roots)]]
+            ys = [labels[i] for i in indexes]
+            if len(set(ys)) < 2: continue
+            deltas.append(binary_metrics(ys,[pre_scores[i] for i in indexes])['auroc'] -
+                          binary_metrics(ys,[rand_scores[i] for i in indexes])['auroc'])
+        deltas.sort()
+        control = {'metric':'pretrained_minus_random_auroc',
+                   'delta':binary_metrics(labels,pre_scores)['auroc'] - binary_metrics(labels,rand_scores)['auroc'],
+                   'root_bootstrap_95pct_delta':[deltas[int(.025*(len(deltas)-1))],deltas[int(.975*(len(deltas)-1))]],
+                   'replicates':len(deltas), 'note':'One initialization seed; exploratory root-cluster bootstrap'}
     return {'validation_samples':len(samples),'validation_roots':len(root_map),'by_label':by_label,
-            'prefix_groups':len(groups),'mixed_label_prefix_groups':len(pair_groups), 'runs':seed_results}
+            'prefix_groups':len(groups),'mixed_label_prefix_groups':len(pair_groups), 'runs':seed_results,
+            'backbone_control':control} 
 
 
 def main():
