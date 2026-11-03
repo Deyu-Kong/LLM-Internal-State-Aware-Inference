@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "experiment_id": "first-task-smoke",
+  "status": "success",
+  "started_at": "2026-11-03T07:05:35.270947+00:00",
+  "finished_at": "2026-11-03T07:05:35.277091+00:00",
+  "runtime_seconds": 0.006101177001255564,
+  "seed": 42,
+  "git": {
+    "commit": null,
+    "dirty": null
+  },
+  "environment": {
+    "python": "3.10.12",
+    "platform": "Linux-5.15.167.4-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+    "machine": "x86_64",
+    "processor": "x86_64",
+    "packages": {
+      "state-inference": "0.1.0",
+      "PyYAML": "6.0.3",
+      "torch": null,
+      "transformers": null,
+      "peft": null,
+      "datasets": null,
+      "vllm": null
+    },
+    "cuda_version": null,
+    "gpu_information": null,
+    "gpu_status": "not_inspected_cpu_only_smoke"
+  },
+  "config_sha256": "55c38b9ca9f037be0dd745433b91b4516a1dc44f6a5ab1847754e1abbd020875",
+  "config": {
+    "experiment_id": "first-task-smoke",
+    "seed": 42,
+    "output_dir": "results/examples"
+  },
+  "model": {
+    "name": null,
+    "revision": null
+  },
+  "tokenizer_revision": null,
+  "adapter_revision": null,
+  "dataset_manifest": "dataset_manifest.json",
+  "batch_size": null,
+  "input_length": null,
+  "output_length": null,
+  "sampling_parameters": {},
+  "reproduce_argv": [
+    "state-inference",
+    "smoke",
+    "--config",
+    "config.yaml"
+  ],
+  "reproduce_note": "Run from a fresh directory with the copied config.yaml; output paths are relative to the working directory."
+}

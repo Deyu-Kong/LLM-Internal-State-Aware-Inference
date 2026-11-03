@@ -1,0 +1,3 @@
+experiment_id: local-smoke-001
+seed: 42
+output_dir: results/runs

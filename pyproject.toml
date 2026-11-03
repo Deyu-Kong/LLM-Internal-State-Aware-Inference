@@ -1,0 +1,19 @@
+[build-system]
+requires = ["hatchling==1.27.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "state-inference"
+version = "0.1.0"
+description = "Reproducibility infrastructure for internal-state-aware LLM research"
+requires-python = ">=3.10"
+dependencies = ["PyYAML==6.0.3"]
+
+[project.scripts]
+state-inference = "state_inference.cli:main"
+
+[dependency-groups]
+dev = ["pytest==8.4.2"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

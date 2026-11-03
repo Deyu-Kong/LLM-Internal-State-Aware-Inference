@@ -1,0 +1,3 @@
+experiment_id: first-task-smoke
+output_dir: results/examples
+seed: 42
