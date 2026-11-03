@@ -105,7 +105,7 @@ def summarize(run_dirs, iterations=500):
                    'replicates':len(deltas), 'note':'One initialization seed; exploratory root-cluster bootstrap'}
     return {'validation_samples':len(samples),'validation_roots':len(root_map),'by_label':by_label,
             'prefix_groups':len(groups),'mixed_label_prefix_groups':len(pair_groups), 'runs':seed_results,
-            'backbone_control':control} 
+            'backbone_control':control}
 
 
 def main():
