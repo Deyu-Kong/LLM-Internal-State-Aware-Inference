@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "experiment_id": "prm800k-expanded-seed43",
+  "git": {
+    "commit": "faa6be601345c0947cd8fcfff4df734f3a0b61a3",
+    "dirty": false
+  },
+  "seed": 42,
+  "model_seed": 43,
+  "environment": {
+    "python": "3.12.13",
+    "platform": "Linux-6.8.0-111-generic-x86_64-with-glibc2.39",
+    "machine": "x86_64",
+    "processor": "x86_64",
+    "packages": {
+      "state-inference": "0.1.0",
+      "PyYAML": "6.0.3",
+      "torch": "2.11.0",
+      "transformers": "5.8.0",
+      "peft": null,
+      "datasets": null,
+      "vllm": "0.20.2"
+    },
+    "cuda_version": "13.0",
+    "gpu_information": {
+      "physical_index": 0,
+      "uuid": "GPU-80eb77e9-eaf8-ed01-a77e-8d67f41a971d",
+      "name": "NVIDIA A800-SXM4-80GB",
+      "driver": "595.58.03"
+    },
+    "gpu_status": "single_authorized_gpu"
+  },
+  "config": {
+    "experiment_id": "prm800k-expanded-seed43",
+    "seed": 42,
+    "model_seed": 43,
+    "source_revision": "7ecc794703b2877f63226f2477a49b34f9b25163",
+    "source_file": "data/raw/prm800k/7ecc794703b2877f63226f2477a49b34f9b25163/phase1_train.jsonl",
+    "source_sha256": "e9da6a73f827ffb9a8c0dc644c541d34ed76b3d4d1e4896ff5f7b37ddf5ae34d",
+    "previous_selected": "results/examples/prm800k-pilot/selected_ids.jsonl",
+    "benchmark_config": "configs/datasets/processbench_audit.yaml",
+    "benchmark_dir": "data/raw/processbench/3bdcd5371ed567559a78f559c01c13a6deee7604",
+    "model_config": "configs/models/smollm2_135m.json",
+    "output_dir": "results/prm800k-expanded",
+    "calibration_roots": 100,
+    "test_roots": 100,
+    "max_per_root": 8,
+    "max_tokens": 512,
+    "rank": 2,
+    "optimizer_steps": 300,
+    "gradient_accumulation": 4,
+    "learning_rate": 0.0003,
+    "max_wall_seconds": 1200
+  },
+  "config_sha256": "fc6ebb890a5a59f52a78fac441847fdde72cad8b5443f03c8c9d7fb56aae5d75",
+  "mode": "training",
+  "started_at": "2026-11-03T08:51:01.239013+00:00",
+  "dataset_manifest": "dataset_manifest.json",
+  "dtype": "float32",
+  "batch_size": 1,
+  "effective_batch_size": 4,
+  "input_length_limit": 512,
+  "output_length": 1,
+  "sampling_parameters": {},
+  "reproduce_argv": [
+    "python",
+    "scripts/train_probe_expanded.py",
+    "--config",
+    "configs/wp1_probe/prm800k_expanded_seed43.yaml",
+    "--gpu",
+    "0"
+  ],
+  "model": {
+    "name": "HuggingFaceTB/SmolLM2-135M-Instruct",
+    "revision": "12fd25f77366fa6b3b4b768ec3050bf629380bac"
+  },
+  "tokenizer_revision": "12fd25f77366fa6b3b4b768ec3050bf629380bac",
+  "adapter_revision": "checkpoint.pt after training",
+  "status": "success",
+  "runtime_seconds": 259.9638298259815,
+  "finished_at": "2026-11-03T08:55:21.202987+00:00",
+  "peak_gpu_memory_allocated_bytes": 711797760
+}

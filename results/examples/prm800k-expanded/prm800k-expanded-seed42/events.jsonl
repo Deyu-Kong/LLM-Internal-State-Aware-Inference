@@ -1,0 +1,17 @@
+{"timestamp": "2026-11-03T08:45:27.962938+00:00", "event": "run_started", "seed": 42, "model_seed": 42, "environment": {"python": "3.12.13", "platform": "Linux-6.8.0-111-generic-x86_64-with-glibc2.39", "machine": "x86_64", "processor": "x86_64", "packages": {"state-inference": "0.1.0", "PyYAML": "6.0.3", "torch": "2.11.0", "transformers": "5.8.0", "peft": null, "datasets": null, "vllm": "0.20.2"}, "cuda_version": "13.0", "gpu_information": {"physical_index": 0, "uuid": "GPU-80eb77e9-eaf8-ed01-a77e-8d67f41a971d", "name": "NVIDIA A800-SXM4-80GB", "driver": "595.58.03"}, "gpu_status": "single_authorized_gpu"}}
+{"timestamp": "2026-11-03T08:45:42.492752+00:00", "event": "dataset_ready", "counts": {"train": {"samples": 2719, "roots": 356, "positive": 1882, "negative": 837}, "calibration": {"samples": 771, "roots": 100, "positive": 497, "negative": 274}, "test": {"samples": 766, "roots": 100, "positive": 507, "negative": 259}}, "overlength_removed": 6542}
+{"timestamp": "2026-11-03T08:45:44.888188+00:00", "event": "optimizer_step", "step": 1, "weighted_bce": 0.3980095237493515, "gradient_norm": 0.5382979512214661}
+{"timestamp": "2026-11-03T08:45:57.086452+00:00", "event": "optimizer_step", "step": 25, "weighted_bce": 0.5817645788192749, "gradient_norm": 2.479161024093628}
+{"timestamp": "2026-11-03T08:46:10.352518+00:00", "event": "optimizer_step", "step": 50, "weighted_bce": 0.410663940012455, "gradient_norm": 0.2991701364517212}
+{"timestamp": "2026-11-03T08:46:23.256202+00:00", "event": "optimizer_step", "step": 75, "weighted_bce": 0.3116657882928848, "gradient_norm": 0.7526569366455078}
+{"timestamp": "2026-11-03T08:46:36.993220+00:00", "event": "optimizer_step", "step": 100, "weighted_bce": 0.46503420174121857, "gradient_norm": 0.2621283531188965}
+{"timestamp": "2026-11-03T08:46:50.438988+00:00", "event": "optimizer_step", "step": 125, "weighted_bce": 0.49882567673921585, "gradient_norm": 0.3557683825492859}
+{"timestamp": "2026-11-03T08:47:03.295614+00:00", "event": "optimizer_step", "step": 150, "weighted_bce": 0.39730487018823624, "gradient_norm": 0.15563303232192993}
+{"timestamp": "2026-11-03T08:47:15.633351+00:00", "event": "optimizer_step", "step": 175, "weighted_bce": 0.5432164743542671, "gradient_norm": 0.5281116366386414}
+{"timestamp": "2026-11-03T08:47:27.838043+00:00", "event": "optimizer_step", "step": 200, "weighted_bce": 0.5511451102793217, "gradient_norm": 0.46336108446121216}
+{"timestamp": "2026-11-03T08:47:40.250283+00:00", "event": "optimizer_step", "step": 225, "weighted_bce": 0.30048372596502304, "gradient_norm": 0.4240362346172333}
+{"timestamp": "2026-11-03T08:47:53.193280+00:00", "event": "optimizer_step", "step": 250, "weighted_bce": 0.23637575656175613, "gradient_norm": 0.5291687250137329}
+{"timestamp": "2026-11-03T08:48:05.677638+00:00", "event": "optimizer_step", "step": 275, "weighted_bce": 0.4674432724714279, "gradient_norm": 0.3081527650356293}
+{"timestamp": "2026-11-03T08:48:18.610337+00:00", "event": "optimizer_step", "step": 300, "weighted_bce": 0.4824901297688484, "gradient_norm": 0.2738982141017914}
+{"timestamp": "2026-11-03T08:49:48.102982+00:00", "event": "run_succeeded", "optimizer_steps": 300}
+{"timestamp": "2026-11-03T08:49:48.103435+00:00", "event": "run_finished", "status": "success", "runtime_seconds": 260.1401677619433}

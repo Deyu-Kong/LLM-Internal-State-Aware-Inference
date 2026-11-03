@@ -1,0 +1,82 @@
+{
+  "status": "success",
+  "runs": [
+    {
+      "run": "prm800k-expanded-seed42",
+      "seed": 42,
+      "optimizer_steps": 300,
+      "gradient_accumulation": 4,
+      "training_pool_samples": 2719,
+      "training_pool_roots": 356,
+      "sample_exposures": 1200,
+      "unique_samples": 1200,
+      "unique_roots": 351,
+      "positive_exposures": 830,
+      "negative_exposures": 370,
+      "train_samples_sha256": "6de2f7b2607a8a292abcce396be191a6b88998c39ac465c5141e65828d08f6cf"
+    },
+    {
+      "run": "prm800k-expanded-seed43",
+      "seed": 43,
+      "optimizer_steps": 300,
+      "gradient_accumulation": 4,
+      "training_pool_samples": 2719,
+      "training_pool_roots": 356,
+      "sample_exposures": 1200,
+      "unique_samples": 1200,
+      "unique_roots": 347,
+      "positive_exposures": 831,
+      "negative_exposures": 369,
+      "train_samples_sha256": "6de2f7b2607a8a292abcce396be191a6b88998c39ac465c5141e65828d08f6cf"
+    },
+    {
+      "run": "prm800k-expanded-seed44",
+      "seed": 44,
+      "optimizer_steps": 300,
+      "gradient_accumulation": 4,
+      "training_pool_samples": 2719,
+      "training_pool_roots": 356,
+      "sample_exposures": 1200,
+      "unique_samples": 1200,
+      "unique_roots": 348,
+      "positive_exposures": 804,
+      "negative_exposures": 396,
+      "train_samples_sha256": "6de2f7b2607a8a292abcce396be191a6b88998c39ac465c5141e65828d08f6cf"
+    },
+    {
+      "run": "prm800k-expanded-train200-control",
+      "seed": 42,
+      "optimizer_steps": 300,
+      "gradient_accumulation": 4,
+      "training_pool_samples": 1516,
+      "training_pool_roots": 200,
+      "sample_exposures": 1200,
+      "unique_samples": 1200,
+      "unique_roots": 199,
+      "positive_exposures": 835,
+      "negative_exposures": 365,
+      "train_samples_sha256": "a758b0715b14eca1d5357ed94b37c0a8608c94852e1083f8d01054c88e4293f7"
+    }
+  ],
+  "git": {
+    "commit": "ff33556a79a9dd056424c4bb6c00083b958498cd",
+    "dirty": false
+  },
+  "timestamp": "2026-11-03T12:32:51.960511+00:00",
+  "runtime_seconds": 0.30105571006424725,
+  "method": "Replay Python Random(seed) shuffles using actual optimizer steps and accumulation; no text or score changes",
+  "reproduce_argv": [
+    "python",
+    "scripts/audit_training_exposure.py",
+    "--run",
+    "results/prm800k-expanded/prm800k-expanded-seed42",
+    "--run",
+    "results/prm800k-expanded/prm800k-expanded-seed43",
+    "--run",
+    "results/prm800k-expanded/prm800k-expanded-seed44",
+    "--run",
+    "results/prm800k-expanded/prm800k-expanded-train200-control",
+    "--output",
+    "results/prm800k-expanded/exposure-v1.json"
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "experiment_id": "prm800k-expanded-seed42-preflight",
+  "git": {
+    "commit": "602301d2a7f7fa71ef02ff306d25a1cf950c2891",
+    "dirty": false
+  },
+  "seed": 42,
+  "model_seed": 42,
+  "environment": {
+    "python": "3.12.13",
+    "platform": "Linux-6.8.0-111-generic-x86_64-with-glibc2.39",
+    "machine": "x86_64",
+    "processor": "x86_64",
+    "packages": {
+      "state-inference": "0.1.0",
+      "PyYAML": "6.0.3",
+      "torch": "2.11.0",
+      "transformers": "5.8.0",
+      "peft": null,
+      "datasets": null,
+      "vllm": "0.20.2"
+    },
+    "cuda_version": "13.0",
+    "gpu_information": null,
+    "gpu_status": "cpu_only"
+  },
+  "config": {
+    "experiment_id": "prm800k-expanded-seed42",
+    "seed": 42,
+    "model_seed": 42,
+    "source_revision": "7ecc794703b2877f63226f2477a49b34f9b25163",
+    "source_file": "data/raw/prm800k/7ecc794703b2877f63226f2477a49b34f9b25163/phase1_train.jsonl",
+    "source_sha256": "e9da6a73f827ffb9a8c0dc644c541d34ed76b3d4d1e4896ff5f7b37ddf5ae34d",
+    "previous_selected": "results/examples/prm800k-pilot/selected_ids.jsonl",
+    "benchmark_config": "configs/datasets/processbench_audit.yaml",
+    "benchmark_dir": "data/raw/processbench/3bdcd5371ed567559a78f559c01c13a6deee7604",
+    "model_config": "configs/models/smollm2_135m.json",
+    "output_dir": "results/prm800k-expanded",
+    "calibration_roots": 100,
+    "test_roots": 100,
+    "max_per_root": 8,
+    "max_tokens": 512,
+    "rank": 2,
+    "optimizer_steps": 300,
+    "gradient_accumulation": 4,
+    "learning_rate": 0.0003,
+    "max_wall_seconds": 1200
+  },
+  "config_sha256": "1f47f762fce317e4f5c6e34c22c96c2b5e27f46f830e9689e1551bc93ca2dd72",
+  "mode": "preflight",
+  "started_at": "2026-11-03T08:44:41.182446+00:00",
+  "dataset_manifest": "dataset_manifest.json",
+  "dtype": "float32",
+  "batch_size": 1,
+  "effective_batch_size": 4,
+  "input_length_limit": 512,
+  "output_length": 1,
+  "sampling_parameters": {},
+  "reproduce_argv": [
+    "python",
+    "scripts/train_probe_expanded.py",
+    "--config",
+    "configs/wp1_probe/prm800k_expanded.yaml",
+    "--preflight"
+  ],
+  "status": "failed",
+  "runtime_seconds": 0.8241775250062346,
+  "finished_at": "2026-11-03T08:44:42.006723+00:00",
+  "peak_gpu_memory_allocated_bytes": null
+}

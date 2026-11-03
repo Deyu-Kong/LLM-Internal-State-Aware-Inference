@@ -1,0 +1,259 @@
+{
+  "runs": [
+    {
+      "run": "prm800k-expanded-seed42",
+      "test": {
+        "n": 766,
+        "positives": 507,
+        "negatives": 259,
+        "auroc": 0.6368143291220214,
+        "average_precision": 0.7818015575966331,
+        "f1_at_0_5": 0.003937007874015748,
+        "accuracy_at_0_5": 0.3394255874673629,
+        "brier": 0.25919630401332533,
+        "bce": 0.711567519031355
+      },
+      "test_calibrated": {
+        "n": 766,
+        "positives": 507,
+        "negatives": 259,
+        "auroc": 0.6368143291220214,
+        "average_precision": 0.7818015575966331,
+        "f1_at_0_5": 0.7965435978004713,
+        "accuracy_at_0_5": 0.6618798955613577,
+        "brier": 0.21561299931230013,
+        "bce": 0.6211436026700146,
+        "threshold": 0.5477984699264098,
+        "f1_at_calibrated_threshold": 0.7965435978004713
+      },
+      "baseline": {
+        "n": 766,
+        "positives": 507,
+        "negatives": 259,
+        "auroc": 0.6180842719304258,
+        "average_precision": 0.7644842673350108,
+        "f1_at_0_5": 0.7965435978004713,
+        "accuracy_at_0_5": 0.6618798955613577,
+        "brier": 0.21650323201870272,
+        "bce": 0.6222420233635827
+      },
+      "matched_pairs": {
+        "groups": 147,
+        "pairs": 334,
+        "accuracy": 0.625748502994012,
+        "length_position_accuracy": 0.5434131736526946
+      },
+      "auroc_delta_vs_baseline": 0.018730057191595595,
+      "root_bootstrap_95pct_auroc_delta": [
+        -0.019418851878100662,
+        0.06112210288298481
+      ],
+      "root_bootstrap_95pct_pair_accuracy_delta": [
+        0.0,
+        0.16172106824925817
+      ],
+      "matched_pair_roots": 100,
+      "bootstrap_replicates": 500
+    },
+    {
+      "run": "prm800k-expanded-seed43",
+      "test": {
+        "n": 766,
+        "positives": 507,
+        "negatives": 259,
+        "auroc": 0.5390022313099236,
+        "average_precision": 0.7046752448628445,
+        "f1_at_0_5": 0.7965435978004713,
+        "accuracy_at_0_5": 0.6618798955613577,
+        "brier": 0.24309841012734598,
+        "bce": 0.6793341778485812
+      },
+      "test_calibrated": {
+        "n": 766,
+        "positives": 507,
+        "negatives": 259,
+        "auroc": 0.5390022313099236,
+        "average_precision": 0.7046752448628445,
+        "f1_at_0_5": 0.7965435978004713,
+        "accuracy_at_0_5": 0.6618798955613577,
+        "brier": 0.2234290618395398,
+        "bce": 0.6389730022027026,
+        "threshold": 0.6142162777549219,
+        "f1_at_calibrated_threshold": 0.7949526813880127
+      },
+      "baseline": {
+        "n": 766,
+        "positives": 507,
+        "negatives": 259,
+        "auroc": 0.6180842719304258,
+        "average_precision": 0.7644842673350108,
+        "f1_at_0_5": 0.7965435978004713,
+        "accuracy_at_0_5": 0.6618798955613577,
+        "brier": 0.21650323201870272,
+        "bce": 0.6222420233635827
+      },
+      "matched_pairs": {
+        "groups": 147,
+        "pairs": 334,
+        "accuracy": 0.47604790419161674,
+        "length_position_accuracy": 0.5434131736526946
+      },
+      "auroc_delta_vs_baseline": -0.07908204062050217,
+      "root_bootstrap_95pct_auroc_delta": [
+        -0.12124061587388968,
+        -0.035478096196239206
+      ],
+      "root_bootstrap_95pct_pair_accuracy_delta": [
+        -0.14351851851851852,
+        0.008333333333333333
+      ],
+      "matched_pair_roots": 100,
+      "bootstrap_replicates": 500
+    },
+    {
+      "run": "prm800k-expanded-seed44",
+      "test": {
+        "n": 766,
+        "positives": 507,
+        "negatives": 259,
+        "auroc": 0.6400318323395247,
+        "average_precision": 0.779420234814692,
+        "f1_at_0_5": 0.0,
+        "accuracy_at_0_5": 0.3381201044386423,
+        "brier": 0.2658563399357811,
+        "bce": 0.7249650645665396
+      },
+      "test_calibrated": {
+        "n": 766,
+        "positives": 507,
+        "negatives": 259,
+        "auroc": 0.6400318323395247,
+        "average_precision": 0.779420234814692,
+        "f1_at_0_5": 0.7965435978004713,
+        "accuracy_at_0_5": 0.6618798955613577,
+        "brier": 0.217894261849239,
+        "bce": 0.6262050667776727,
+        "threshold": 0.6055736263559505,
+        "f1_at_calibrated_threshold": 0.7971698113207547
+      },
+      "baseline": {
+        "n": 766,
+        "positives": 507,
+        "negatives": 259,
+        "auroc": 0.6180842719304258,
+        "average_precision": 0.7644842673350108,
+        "f1_at_0_5": 0.7965435978004713,
+        "accuracy_at_0_5": 0.6618798955613577,
+        "brier": 0.21650323201870272,
+        "bce": 0.6222420233635827
+      },
+      "matched_pairs": {
+        "groups": 147,
+        "pairs": 334,
+        "accuracy": 0.592814371257485,
+        "length_position_accuracy": 0.5434131736526946
+      },
+      "auroc_delta_vs_baseline": 0.021947560409098843,
+      "root_bootstrap_95pct_auroc_delta": [
+        -0.020517338331771273,
+        0.06455987636799443
+      ],
+      "root_bootstrap_95pct_pair_accuracy_delta": [
+        -0.04679144385026738,
+        0.14615384615384616
+      ],
+      "matched_pair_roots": 100,
+      "bootstrap_replicates": 500
+    },
+    {
+      "run": "prm800k-expanded-train200-control",
+      "test": {
+        "n": 766,
+        "positives": 507,
+        "negatives": 259,
+        "auroc": 0.6394721010105625,
+        "average_precision": 0.7816229664016848,
+        "f1_at_0_5": 0.5166444740346205,
+        "accuracy_at_0_5": 0.5261096605744126,
+        "brier": 0.2477785026319084,
+        "bce": 0.6886931776418802
+      },
+      "test_calibrated": {
+        "n": 766,
+        "positives": 507,
+        "negatives": 259,
+        "auroc": 0.6394721010105625,
+        "average_precision": 0.7816229664016848,
+        "f1_at_0_5": 0.7965435978004713,
+        "accuracy_at_0_5": 0.6618798955613577,
+        "brier": 0.213950468223184,
+        "bce": 0.6170031341361147,
+        "threshold": 0.5396349222068502,
+        "f1_at_calibrated_threshold": 0.7936758893280632
+      },
+      "baseline": {
+        "n": 766,
+        "positives": 507,
+        "negatives": 259,
+        "auroc": 0.6176425791810407,
+        "average_precision": 0.7638924183745627,
+        "f1_at_0_5": 0.7965435978004713,
+        "accuracy_at_0_5": 0.6618798955613577,
+        "brier": 0.21739517423364552,
+        "bce": 0.624654635968391
+      },
+      "matched_pairs": {
+        "groups": 147,
+        "pairs": 334,
+        "accuracy": 0.6197604790419161,
+        "length_position_accuracy": 0.5434131736526946
+      },
+      "auroc_delta_vs_baseline": 0.021829521829521803,
+      "root_bootstrap_95pct_auroc_delta": [
+        -0.011871497355750327,
+        0.05962077204338834
+      ],
+      "root_bootstrap_95pct_pair_accuracy_delta": [
+        -0.01278772378516624,
+        0.15826330532212884
+      ],
+      "matched_pair_roots": 100,
+      "bootstrap_replicates": 500
+    }
+  ],
+  "data_size_control": {
+    "comparison": "356 minus 200 train roots, same held-out data and 300 updates",
+    "auroc_delta": -0.002657771888541105,
+    "root_bootstrap_95pct_auroc_delta": [
+      -0.013424973815184815,
+      0.008077252831550918
+    ],
+    "root_bootstrap_95pct_pair_accuracy_delta": [
+      -0.03257328990228013,
+      0.0471976401179941
+    ],
+    "bootstrap_replicates": 500,
+    "note": "One seed, fixed budget; smaller run uses full-training-cohort class proportion"
+  },
+  "note": "Exploratory root-cluster bootstrap on the same held-out roots; not independent across model seeds",
+  "git": {
+    "commit": "2230d004aaa12d13467433a2cc08507e5d8543cd",
+    "dirty": false
+  },
+  "timestamp": "2026-11-03T09:13:41.940153+00:00",
+  "runtime_seconds": 3.015219014021568,
+  "reproduce_argv": [
+    "python",
+    "scripts/analyze_expanded.py",
+    "--run",
+    "results/prm800k-expanded/prm800k-expanded-seed42",
+    "--run",
+    "results/prm800k-expanded/prm800k-expanded-seed43",
+    "--run",
+    "results/prm800k-expanded/prm800k-expanded-seed44",
+    "--run",
+    "results/prm800k-expanded/prm800k-expanded-train200-control",
+    "--output",
+    "results/prm800k-expanded/analysis-v1.json"
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "status": "success",
+  "optimizer_steps": 300,
+  "training_seconds": 155.8266642370727,
+  "trainable_parameters": 827137,
+  "changed_trainable_tensors": 187,
+  "class_pos_weight": 0.4447396397590637,
+  "class_pos_weight_source": "full_fresh_training_cohort",
+  "calibration_metrics": {
+    "n": 771,
+    "positives": 497,
+    "negatives": 274,
+    "auroc": 0.6049325147968101,
+    "average_precision": 0.7201363311102857,
+    "f1_at_0_5": 0.44475524475524475,
+    "accuracy_at_0_5": 0.48508430609597925,
+    "brier": 0.24988394837006223,
+    "bce": 0.6929102980779699
+  },
+  "calibration": {
+    "scale": 3.6485700848301112,
+    "bias": 0.7252829437763838,
+    "fit": "calibration split only; positive scale and 1e-4 L2",
+    "threshold": 0.5396349222068502
+  },
+  "test_raw": {
+    "n": 766,
+    "positives": 507,
+    "negatives": 259,
+    "auroc": 0.6394721010105625,
+    "average_precision": 0.7816229664016848,
+    "f1_at_0_5": 0.5166444740346205,
+    "accuracy_at_0_5": 0.5261096605744126,
+    "brier": 0.2477785026319084,
+    "bce": 0.6886931776418802
+  },
+  "test_calibrated": {
+    "n": 766,
+    "positives": 507,
+    "negatives": 259,
+    "auroc": 0.6394721010105625,
+    "average_precision": 0.7816229664016848,
+    "f1_at_0_5": 0.7965435978004713,
+    "accuracy_at_0_5": 0.6618798955613577,
+    "brier": 0.213950468223184,
+    "bce": 0.6170031341361147,
+    "threshold": 0.5396349222068502,
+    "f1_at_calibrated_threshold": 0.7936758893280632
+  },
+  "length_position_baseline": {
+    "n": 766,
+    "positives": 507,
+    "negatives": 259,
+    "auroc": 0.6176425791810407,
+    "average_precision": 0.7638924183745627,
+    "f1_at_0_5": 0.7965435978004713,
+    "accuracy_at_0_5": 0.6618798955613577,
+    "brier": 0.21739517423364552,
+    "bce": 0.624654635968391
+  },
+  "length_position_fit": {
+    "mean": [
+      5.262044906616211,
+      1.5555905103683472
+    ],
+    "scale": [
+      0.5937013030052185,
+      0.77119380235672
+    ],
+    "weight": [
+      -0.5512091517448425,
+      0.04921675845980644
+    ],
+    "bias": 0.9154722690582275
+  },
+  "constant_baseline": {
+    "n": 766,
+    "positives": 507,
+    "negatives": 259,
+    "auroc": 0.5,
+    "average_precision": 0.6618798955613577,
+    "f1_at_0_5": 0.7965435978004713,
+    "accuracy_at_0_5": 0.6618798955613577,
+    "brier": 0.22549946056951561,
+    "bce": 0.6437638474922046
+  },
+  "matched_pairs": {
+    "groups": 147,
+    "pairs": 334,
+    "accuracy": 0.6197604790419161,
+    "length_position_accuracy": 0.5434131736526946
+  },
+  "checkpoint": {
+    "file": "checkpoint.pt",
+    "sha256": "8d14bee03eb39a4af1f28fa39b92d59a06f1043d91b34df5dba514081942aee0",
+    "bytes": 3370060
+  },
+  "checkpoint_reload_verified": true,
+  "test_used_for_tuning": false,
+  "frozen_backbone_unchanged": true,
+  "generator_cache_unchanged": true,
+  "generator_logits_unchanged": true
+}

@@ -1,0 +1,75 @@
+{
+  "source_revision": "7ecc794703b2877f63226f2477a49b34f9b25163",
+  "source_sha256": "e9da6a73f827ffb9a8c0dc644c541d34ed76b3d4d1e4896ff5f7b37ddf5ae34d",
+  "audit": {
+    "source_records": 949,
+    "excluded_neutral_or_unknown_candidates": 7505,
+    "human_corrected_prefix_steps": 1504,
+    "excluded_bad_problem_or_give_up": 141,
+    "stopped_missing_chosen_history": 37,
+    "excluded_flagged_candidates": 13,
+    "excluded_conflicting_labels": 4,
+    "eligible_candidates": 27153,
+    "eligible_roots": 806
+  },
+  "counts": {
+    "train": {
+      "samples": 2719,
+      "roots": 356,
+      "positive": 1882,
+      "negative": 837
+    },
+    "calibration": {
+      "samples": 771,
+      "roots": 100,
+      "positive": 497,
+      "negative": 274
+    },
+    "test": {
+      "samples": 766,
+      "roots": 100,
+      "positive": 507,
+      "negative": 259
+    }
+  },
+  "previous_selected_sha256": "b75e9360ef204a565755c48d742e36ac4b6ab02a3e28cefc76fe8d747f8d7a5e",
+  "excluded_previous_roots": 250,
+  "benchmark_revision": "3bdcd5371ed567559a78f559c01c13a6deee7604",
+  "benchmark_files": {
+    "gsm8k.json": "fb1c59dfd1e83e1c5a48dbe598db27e4bc0b8bc524a09445f2d4b69178f61349",
+    "math.json": "60cb0d7a69cbec98d43cf50855b9b7e7294599c3c9a24bdd031abd18c3b6b136",
+    "olympiadbench.json": "e9d801c9f3c03f949adbfa08e90cb21ad85c0b9224bc5e98326f8215c218aa55",
+    "omnimath.json": "e8d7cf4512c82168dae2fe48b1718069a3002e7910af1d180a27ee0d9948ba47"
+  },
+  "benchmark_usage": "question fingerprints only; no labels or scores",
+  "overlength_removed": 6542,
+  "root_assignments": 556,
+  "selection": "fresh roots, deterministic pair-first capped by root, no truncation",
+  "model_input_fields": [
+    "problem",
+    "prefix_steps",
+    "candidate_step"
+  ],
+  "files": {
+    "train_samples.jsonl": {
+      "sha256": "6de2f7b2607a8a292abcce396be191a6b88998c39ac465c5141e65828d08f6cf",
+      "bytes": 5954098
+    },
+    "test_samples.jsonl": {
+      "sha256": "1463827e46388e1ef032b18012d0018a44f3b7e458701e5dbca30714aae0bc85",
+      "bytes": 1617759
+    },
+    "calibration_samples.jsonl": {
+      "sha256": "90bf4a72b9263b45a52a83bd78dfc21cb32974fe3381bb4aa3c04f867e1d3831",
+      "bytes": 1745734
+    },
+    "excluded_overlength.jsonl": {
+      "sha256": "a3da94f16895e2610b213f1f1503d5312fc77be3bc0882ca386d7bea618826cf",
+      "bytes": 1662153
+    },
+    "root_assignments.jsonl": {
+      "sha256": "359a262b725c8627f45834023e8cb906775da8a78543e9f295234c81efdacd96",
+      "bytes": 59436
+    }
+  }
+}
