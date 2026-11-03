@@ -32,7 +32,7 @@ def main():
     if gpu is None:
         os.environ["CUDA_VISIBLE_DEVICES"] = ""
     import torch
-    from transformers import AutoTokenizer, AutoModelForCausalLM
+    from transformers import AutoTokenizer, AutoModelForCausalLM, AutoConfig
     from state_inference.kv_probe import SingleKVProbe
     from state_inference.training.pilot import (frozen_digest, prefix_cache, evaluate, example_logits,
         length_position_baseline, trainable_state, load_trainable_state)
@@ -115,11 +115,17 @@ def main():
                 "files": {p.name: {"sha256": sha256_file(p), "bytes": p.stat().st_size} for p in output.glob("*.jsonl") if p.name != "events.jsonl"}}
             write_json(output / "dataset_manifest.json", data_manifest)
             emit("dataset_ready", counts=data_manifest["counts"], over_length_exclusions=len(excluded))
-            backbone = AutoModelForCausalLM.from_pretrained(model_cfg["local_dir"], local_files_only=True,
-                                                          dtype=torch.float32, attn_implementation="eager").eval()
+            if cfg["backbone_mode"] == "pretrained":
+                backbone = AutoModelForCausalLM.from_pretrained(model_cfg["local_dir"], local_files_only=True,
+                                                              dtype=torch.float32, attn_implementation="eager").eval()
+            else:
+                backbone_cfg = AutoConfig.from_pretrained(model_cfg["local_dir"], local_files_only=True)
+                backbone_cfg._attn_implementation = "eager"
+                backbone = AutoModelForCausalLM.from_config(backbone_cfg).to(dtype=torch.float32).eval()
+            torch.manual_seed(cfg["model_seed"])  # Identical adapter initialization across backbone controls.
             probe = SingleKVProbe(backbone, rank=cfg["rank"], init_token_id=tokenizer.eos_token_id, output_logits=True).to(device)
             backbone.config.to_json_file(output / "model_config.json")
-            manifest.update(model={"name": model_cfg["model_id"], "revision": model_cfg["revision"]},
+            manifest.update(model={"name": model_cfg["model_id"], "revision": model_cfg["revision"], "backbone_mode": cfg["backbone_mode"]},
                             tokenizer_revision=model_cfg["revision"], adapter_revision="checkpoint.pt after training")
             before_frozen = frozen_digest(probe)
             initial = trainable_state(probe)

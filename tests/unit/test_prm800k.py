@@ -92,3 +92,11 @@ def test_pilot_config_bounded(tmp_path):
     p.write_text(yaml.safe_dump(cfg))
     with pytest.raises(ValueError):
         load_training_config(p)
+
+
+def test_control_config_keeps_data_seed_and_changes_backbone():
+    a = load_training_config('configs/wp1_probe/prm800k_control_pretrained.yaml')
+    b = load_training_config('configs/wp1_probe/prm800k_control_random.yaml')
+    assert a['seed'] == b['seed'] == a['model_seed'] == b['model_seed'] == 42
+    assert a['backbone_mode'] == 'pretrained'
+    assert b['backbone_mode'] == 'random'
