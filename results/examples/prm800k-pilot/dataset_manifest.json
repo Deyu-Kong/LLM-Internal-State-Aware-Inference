@@ -1,0 +1,58 @@
+{
+  "source": "openai/prm800k phase1_train",
+  "revision": "7ecc794703b2877f63226f2477a49b34f9b25163",
+  "sha256": "e9da6a73f827ffb9a8c0dc644c541d34ed76b3d4d1e4896ff5f7b37ddf5ae34d",
+  "audit": {
+    "source_records": 949,
+    "excluded_neutral_or_unknown_candidates": 7505,
+    "human_corrected_prefix_steps": 1504,
+    "excluded_bad_problem_or_give_up": 141,
+    "stopped_missing_chosen_history": 37,
+    "excluded_flagged_candidates": 13,
+    "excluded_conflicting_labels": 4,
+    "eligible_candidates": 27153,
+    "eligible_roots": 806
+  },
+  "label_policy": "+1 vs -1; neutral/uncertain excluded; human-corrected chosen history only; conflicts removed",
+  "counts": {
+    "train": {
+      "samples": 699,
+      "roots": 192,
+      "positives": 493,
+      "negatives": 206
+    },
+    "validation": {
+      "samples": 192,
+      "roots": 50,
+      "positives": 146,
+      "negatives": 46
+    }
+  },
+  "over_length_exclusions": 105,
+  "max_tokens": 512,
+  "truncation": false,
+  "model_input_fields": [
+    "problem",
+    "prefix_steps",
+    "candidate_step"
+  ],
+  "official_test_used": false,
+  "files": {
+    "train_samples.jsonl": {
+      "sha256": "78e417766ef8c05320a7fc84e1037a65173917ae2b63dca5888c129509b78927",
+      "bytes": 1464986
+    },
+    "validation_samples.jsonl": {
+      "sha256": "005fe66b2ab8e6e53062d56086cb8fe2c818498e3c451fc3a73d6fb4651b21b4",
+      "bytes": 368042
+    },
+    "over_length_exclusions.jsonl": {
+      "sha256": "78f11900da4fbf3bbb918c6c9d71972049757a67fc871f8581777bdb161a9feb",
+      "bytes": 16209
+    },
+    "selected_ids.jsonl": {
+      "sha256": "b75e9360ef204a565755c48d742e36ac4b6ab02a3e28cefc76fe8d747f8d7a5e",
+      "bytes": 187232
+    }
+  }
+}
