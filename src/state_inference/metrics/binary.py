@@ -32,3 +32,10 @@ def binary_metrics(labels, scores):
             "accuracy_at_0_5": sum((p >= 0.5) == bool(y) for y, p in zip(labels, scores)) / n,
             "brier": sum((p-y)**2 for y, p in zip(labels, scores)) / n,
             "bce": -sum(y*math.log(max(eps, p)) + (1-y)*math.log(max(eps, 1-p)) for y, p in zip(labels, scores)) / n}
+
+
+def undo_positive_class_weight(probability, weight):
+    """Invert ideal weighted-BCE odds; this does not itself establish calibration."""
+    if not math.isfinite(probability) or not 0 <= probability <= 1 or not math.isfinite(weight) or weight <= 0:
+        raise ValueError("Invalid probability or positive class weight")
+    return probability / (weight + (1 - weight) * probability)

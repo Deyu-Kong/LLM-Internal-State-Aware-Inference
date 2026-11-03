@@ -107,3 +107,12 @@ def test_model_seed_is_independent_of_data_seed():
     b = load_training_config('configs/wp1_probe/prm800k_modelseed_44.yaml')
     assert a['seed'] == b['seed'] == 42
     assert (a['model_seed'], b['model_seed']) == (43, 44)
+
+
+def test_weighted_bce_odds_inversion():
+    from state_inference.metrics.binary import undo_positive_class_weight
+    assert undo_positive_class_weight(0.5, 0.5) == pytest.approx(2/3)
+    assert undo_positive_class_weight(0.0, 0.5) == 0
+    assert undo_positive_class_weight(1.0, 0.5) == 1
+    with pytest.raises(ValueError):
+        undo_positive_class_weight(0.5, 0)

@@ -11,7 +11,7 @@ from datetime import datetime, timezone
 from state_inference.manifest import git_state
 from state_inference.cli import write_json
 from state_inference.data.preparation import read_jsonl
-from state_inference.metrics.binary import binary_metrics
+from state_inference.metrics.binary import binary_metrics, undo_positive_class_weight
 
 
 def summarize(run_dirs, iterations=500):
@@ -72,7 +72,10 @@ def summarize(run_dirs, iterations=500):
             q = binary_metrics(ys,[baseline[i] for i in indexes])['auroc']
             deltas.append(p-q)
         deltas.sort()
+        corrected = [undo_positive_class_weight(p, result['class_pos_weight']) for p in scores]
         seed_results.append({'run': directory.name, 'validation': result['after']['validation'],
+                             'weight_adjusted_validation': binary_metrics(labels, corrected),
+                             'weight_adjustment_note': 'Analytical inversion of training class weight; assumes ideal weighted-risk optimum and does not establish calibration',
                              'baseline': result['baselines']['length_position'],
                              'paired_candidate_count': len(pairs), 'paired_candidate_accuracy': statistics.mean(pairs) if pairs else None,
                              'auroc_delta_vs_length': result['after']['validation']['auroc']-result['baselines']['length_position']['auroc'],
