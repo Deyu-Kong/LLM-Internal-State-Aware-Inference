@@ -1,0 +1,32 @@
+{
+  "model_id": "HuggingFaceTB/SmolLM2-135M-Instruct",
+  "revision": "12fd25f77366fa6b3b4b768ec3050bf629380bac",
+  "files": {
+    "README.md": {
+      "bytes": 6772,
+      "git_blob": "d168166639f4dec33a0d0bb5f8e7d4e20d9d52ac"
+    },
+    "config.json": {
+      "bytes": 861,
+      "git_blob": "36293b6099200eb8aeb55ae2c01bca2ba46d80d0"
+    },
+    "model.safetensors": {
+      "bytes": 269060552,
+      "sha256": "5af571cbf074e6d21a03528d2330792e532ca608f24ac70a143f6b369968ab8c"
+    },
+    "special_tokens_map.json": {
+      "bytes": 655,
+      "git_blob": "44719d2e365acac0637fd25a3acf46494ca45940"
+    },
+    "tokenizer.json": {
+      "bytes": 2104556,
+      "git_blob": "f922b1797f0c88e71addc8393787831f2477a4bd"
+    },
+    "tokenizer_config.json": {
+      "bytes": 3764,
+      "git_blob": "8c7b22013909450429303ed10be4398bd63f5457"
+    }
+  },
+  "local_dir": "data/raw/models/SmolLM2-135M-Instruct/12fd25f77366fa6b3b4b768ec3050bf629380bac",
+  "license": "Apache-2.0"
+}

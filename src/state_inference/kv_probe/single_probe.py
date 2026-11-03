@@ -75,7 +75,7 @@ class SingleKVProbe(nn.Module):
     verification uses the original frozen projections, including after adapter updates.
     """
 
-    def __init__(self, model, rank=2, init_token_id=1):
+    def __init__(self, model, rank=2, init_token_id=1, output_logits=False):
         super().__init__()
         if model.config.model_type != "llama":
             raise ValueError("This prototype is validated only for Llama")
@@ -88,6 +88,7 @@ class SingleKVProbe(nn.Module):
             raise ValueError("Projections must be unwrapped nn.Linear modules")
         if type(rank) is not int or not 1 <= rank <= min(min(p.in_features, p.out_features) for p in projections):
             raise ValueError("Invalid LoRA rank")
+        self.output_logits = output_logits
         self.model = model
         self.model.requires_grad_(False)
         self._gate = ContextVar("single_kv_probe_gate", default=False)
@@ -98,7 +99,9 @@ class SingleKVProbe(nn.Module):
         width = model.config.hidden_size
         self.head = nn.Sequential(nn.Linear(width, width), nn.SiLU(),
                                   nn.Linear(width, width), nn.SiLU(),
-                                  nn.Linear(width, 1), nn.Sigmoid())
+                                  nn.Linear(width, 1))
+        if not output_logits:
+            self.head.append(nn.Sigmoid())
         self.head.to(device=self.probe_embedding.device, dtype=self.probe_embedding.dtype)
         self.train(False)
 
