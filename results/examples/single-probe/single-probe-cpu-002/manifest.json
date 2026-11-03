@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "experiment_id": "single-probe-cpu-002",
+  "git": {
+    "commit": "02c65dc54f8efb12c2522fd74331997ad58d855f",
+    "dirty": false
+  },
+  "environment": {
+    "python": "3.12.13",
+    "platform": "Linux-6.8.0-111-generic-x86_64-with-glibc2.39",
+    "machine": "x86_64",
+    "processor": "x86_64",
+    "packages": {
+      "state-inference": "0.1.0",
+      "PyYAML": "6.0.3",
+      "torch": "2.11.0",
+      "transformers": "5.8.0",
+      "peft": null,
+      "datasets": null,
+      "vllm": "0.20.2"
+    },
+    "cuda_version": "13.0",
+    "gpu_information": null,
+    "gpu_status": "cpu_only"
+  },
+  "seed": 42,
+  "config": {
+    "experiment_id": "single-probe-cpu-002",
+    "seed": 42,
+    "output_dir": "results/single-probe"
+  },
+  "config_sha256": "bcdc5d204e1f9c26e0cc1966a529f716051fc64ad3c37c2dc7b3f895dfd49024",
+  "model": {
+    "name": "random_tiny_llama",
+    "revision": "model_config.json + seed + package versions",
+    "pretrained": false
+  },
+  "adapter_revision": "random initialization; probe_config.json + seed + Git commit",
+  "tokenizer_revision": null,
+  "dataset_manifest": "dataset_manifest.json",
+  "probe_config": "probe_config.json",
+  "batch_size": 1,
+  "input_length": 4,
+  "output_length": 1,
+  "sampling_parameters": {
+    "do_sample": false
+  },
+  "dtype": "float32",
+  "reproduce_argv": [
+    "python",
+    "scripts/check_single_probe.py",
+    "--config",
+    "configs/wp1_probe/single_probe_cpu.yaml"
+  ],
+  "started_at": "2026-11-03T07:26:31.623950+00:00",
+  "status": "success",
+  "runtime_seconds": 0.17014683899469674,
+  "finished_at": "2026-11-03T07:26:31.794275+00:00",
+  "peak_gpu_memory_allocated_bytes": null
+}

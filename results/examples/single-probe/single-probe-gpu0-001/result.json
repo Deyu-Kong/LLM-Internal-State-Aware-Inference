@@ -1,0 +1,80 @@
+{
+  "status": "success",
+  "score": 0.5549460053443909,
+  "target": 0.75,
+  "loss": 0.038046061992645264,
+  "target_kind": "outcome_derived_linear_pseudo_confidence_not_process_label",
+  "trainable_parameters": 2817,
+  "total_parameters": 23457,
+  "gradient_norms": {
+    "probe_embedding": 0.2594791650772095,
+    "model.model.layers.0.self_attn.q_proj.lora_a": 0.0,
+    "model.model.layers.0.self_attn.q_proj.lora_b": 6.580543413292617e-05,
+    "model.model.layers.0.self_attn.k_proj.lora_a": 0.0,
+    "model.model.layers.0.self_attn.k_proj.lora_b": 8.319174230564386e-05,
+    "model.model.layers.0.self_attn.v_proj.lora_a": 0.0,
+    "model.model.layers.0.self_attn.v_proj.lora_b": 0.004144654609262943,
+    "model.model.layers.1.self_attn.q_proj.lora_a": 0.0,
+    "model.model.layers.1.self_attn.q_proj.lora_b": 4.609314419212751e-05,
+    "model.model.layers.1.self_attn.k_proj.lora_a": 0.0,
+    "model.model.layers.1.self_attn.k_proj.lora_b": 1.8857126633520238e-05,
+    "model.model.layers.1.self_attn.v_proj.lora_a": 0.0,
+    "model.model.layers.1.self_attn.v_proj.lora_b": 0.00331865600310266,
+    "head.0.weight": 0.06831502169370651,
+    "head.0.bias": 0.01208478957414627,
+    "head.2.weight": 0.05108370631933212,
+    "head.2.bias": 0.03114965558052063,
+    "head.4.weight": 0.06541914492845535,
+    "head.4.bias": 0.09634923934936523
+  },
+  "generator_cache_unchanged": true,
+  "continuation_logits_and_cache_equal": true,
+  "all_weights_unchanged": true,
+  "optimizer_steps": 0,
+  "forward_with_autograd_ms": 24.598189047537744,
+  "backward_ms": 134.55518102273345,
+  "timing_samples": {
+    "cache_fork_ms": [
+      0.19618193618953228,
+      0.18396996892988682,
+      0.20092306658625603,
+      0.18399592954665422,
+      0.18755497876554728,
+      0.18635194282978773,
+      0.1807779772207141,
+      0.1856049057096243,
+      0.18515903502702713,
+      0.18571189139038324
+    ],
+    "private_probe_forward_ms": [
+      2.6446939446032047,
+      2.642242005094886,
+      2.6526760775595903,
+      2.6586580788716674,
+      2.671478083357215,
+      2.6284860214218497,
+      2.666505053639412,
+      2.685177023522556,
+      2.64923891518265,
+      2.6840749196708202
+    ],
+    "end_to_end_probe_ms": [
+      2.9117390513420105,
+      2.7828210731968284,
+      2.8147289995104074,
+      2.8181669767946005,
+      2.8049249667674303,
+      2.803273033350706,
+      2.7877360116690397,
+      2.798468107357621,
+      2.7852889616042376,
+      2.811850979924202
+    ]
+  },
+  "timing_mean_ms": {
+    "cache_fork_ms": 0.1876231632195413,
+    "private_probe_forward_ms": 2.658323012292385,
+    "end_to_end_probe_ms": 2.8118998161517084
+  },
+  "note": "Tiny synthetic diagnostic only; not official reproduction, calibrated confidence, or production benchmark"
+}

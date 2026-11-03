@@ -45,3 +45,5 @@ uv run --locked state-inference smoke --config configs/smoke.yaml
 详见 [实验规范](docs/experiment_protocol.md)、[数据规范](docs/dataset_protocol.md)、[本次报告](reports/first_task.md) 与 [完整研究计划](llm_internal_state_research_implementation_plan.md)。
 
 状态采集的实测结果见 [报告](reports/state_capture.md)，归档产物见 `results/examples/state-capture/`。
+
+单 Probe 的 CPU/GPU 验证结果、初始化修正与已知缺口见 [报告](reports/single_probe.md)。

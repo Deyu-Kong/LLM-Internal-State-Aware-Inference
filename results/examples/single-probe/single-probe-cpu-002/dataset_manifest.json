@@ -1,0 +1,20 @@
+{
+  "name": "synthetic_probe_gradient_fixture",
+  "version": 1,
+  "prompt_ids": [
+    1,
+    2
+  ],
+  "response_ids": [
+    3,
+    4,
+    5,
+    6
+  ],
+  "prefix_response_position": 2,
+  "outcome": 1,
+  "outcome_is_arbitrary_fixture": true,
+  "target_kind": "outcome_derived_linear_pseudo_confidence_not_process_label",
+  "split": "mechanism_check_only",
+  "used_for_training": false
+}

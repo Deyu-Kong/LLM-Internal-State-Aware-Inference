@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "experiment_id": "single-probe-gpu0-001",
+  "git": {
+    "commit": "7c1e195275f946501ec0b2908f7c406a8d0ed5f2",
+    "dirty": false
+  },
+  "environment": {
+    "python": "3.12.13",
+    "platform": "Linux-6.8.0-111-generic-x86_64-with-glibc2.39",
+    "machine": "x86_64",
+    "processor": "x86_64",
+    "packages": {
+      "state-inference": "0.1.0",
+      "PyYAML": "6.0.3",
+      "torch": "2.11.0",
+      "transformers": "5.8.0",
+      "peft": null,
+      "datasets": null,
+      "vllm": "0.20.2"
+    },
+    "cuda_version": "13.0",
+    "gpu_information": {
+      "physical_index": 0,
+      "uuid": "GPU-80eb77e9-eaf8-ed01-a77e-8d67f41a971d",
+      "name": "NVIDIA A800-SXM4-80GB",
+      "driver": "595.58.03"
+    },
+    "gpu_status": "single_authorized_gpu"
+  },
+  "seed": 42,
+  "config": {
+    "experiment_id": "single-probe-gpu0-001",
+    "seed": 42,
+    "output_dir": "results/single-probe"
+  },
+  "config_sha256": "ea308efa44728f244e258d73b44fc5a5b7e31126c4115c08cec5aaf292fd5f2e",
+  "model": {
+    "name": "random_tiny_llama",
+    "revision": "model_config.json + seed + package versions",
+    "pretrained": false
+  },
+  "adapter_revision": "random initialization; probe_config.json + seed + Git commit",
+  "tokenizer_revision": null,
+  "dataset_manifest": "dataset_manifest.json",
+  "probe_config": "probe_config.json",
+  "batch_size": 1,
+  "input_length": 4,
+  "output_length": 1,
+  "sampling_parameters": {
+    "do_sample": false
+  },
+  "dtype": "float32",
+  "reproduce_argv": [
+    "python",
+    "scripts/check_single_probe.py",
+    "--config",
+    "configs/wp1_probe/single_probe_gpu.yaml",
+    "--gpu",
+    "0"
+  ],
+  "started_at": "2026-11-03T07:25:05.345512+00:00",
+  "status": "success",
+  "runtime_seconds": 0.6493389980169013,
+  "finished_at": "2026-11-03T07:25:05.995068+00:00",
+  "peak_gpu_memory_allocated_bytes": 18331136
+}
