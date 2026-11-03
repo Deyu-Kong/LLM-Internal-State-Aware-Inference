@@ -14,13 +14,13 @@
 
 ```bash
 /root/miniconda3/envs/qwen/bin/python -m venv --system-site-packages .venv
-.venv/bin/python -m pip install -r requirements/state-capture.txt
-.venv/bin/python -m pip install --no-deps -e .
+.venv/bin/python -m pip install --index-url https://pypi.org/simple -r requirements/state-capture.txt
+.venv/bin/python -m pip install --index-url https://pypi.org/simple --no-deps -e .
 CUDA_VISIBLE_DEVICES='' OMP_NUM_THREADS=2 .venv/bin/python -m pytest -q
 OMP_NUM_THREADS=2 .venv/bin/python scripts/check_state_capture.py --config configs/state_capture.yaml
 ```
 
-CPU 与 GPU 检查必须使用不同 experiment_id（例如复制 YAML，分别设为 `tiny-llama-cpu-001` 和 `tiny-llama-gpu0-001`）。然后：
+提供的 CPU 与 GPU 配置已使用不同 experiment_id。GPU 检查命令：
 
 ```bash
 OMP_NUM_THREADS=2 .venv/bin/python scripts/check_state_capture.py --config configs/state_capture_gpu.yaml --gpu 0

@@ -1,0 +1,3 @@
+experiment_id: tiny-llama-gpu0-001
+seed: 42
+output_dir: results/state-capture
