@@ -1,0 +1,3 @@
+experiment_id: single-probe-gpu0-001
+seed: 42
+output_dir: results/single-probe

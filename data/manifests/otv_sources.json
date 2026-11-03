@@ -1,0 +1,17 @@
+{
+  "review_date": "2026-11-03",
+  "paper": {
+    "title": "One-Token Verification for Reasoning Correctness Estimation",
+    "url": "https://aclanthology.org/2026.emnlp-main.519.pdf",
+    "version": "EMNLP 2026 camera-ready",
+    "sha256": "6fa7071a172600f08bdbd34b4294cc67347d9598acc65265451beb7c6abdfd47"
+  },
+  "official_code": {
+    "url": "https://github.com/Multimedia-Analytics-Laboratory/OTV",
+    "api_url": "https://api.github.com/repos/Multimedia-Analytics-Laboratory/OTV",
+    "http_status": 404,
+    "commit": null,
+    "status": "unavailable_at_review_time; no official source inspected"
+  },
+  "implementation_status": "Independent paper-based mechanism check; not official reproduction"
+}
