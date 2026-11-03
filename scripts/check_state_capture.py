@@ -5,15 +5,11 @@ import hashlib
 import json
 import os
 from pathlib import Path
-import subprocess
-import sys
 import time
 
 from state_inference.cli import write_json
 from state_inference.config import load_config
 from state_inference.manifest import environment, git_state
-
-
 from state_inference.runtime.devices import select_idle_gpu
 
 

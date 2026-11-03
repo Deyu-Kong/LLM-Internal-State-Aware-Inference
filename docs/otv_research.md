@@ -31,6 +31,7 @@
 - rank=2，Q/K/V LoRA 的 A 使用 Kaiming 初始化、B 为零，增量缩放为 1，无 adapter dropout。首次 backward 中 A 梯度为零是零初始化 B 的预期结果；测试另外设非零 B 检查 A 梯度和生成隔离。
 - Probe 向量从冻结 embedding 表的 token 1 拷贝后独立训练，通过 inputs_embeds 输入，不扩展 tokenizer/vocabulary。它不是自然语言 token 的语义实现。
 - Head 选择 `32 → 32 → 32 → 1`，中间 SiLU，最终 sigmoid。只训练 LoRA、独立 Probe 向量和 head。
+- 为使 CPU/GPU 诊断共享初始化，所有参数统一在 CPU 初始化再迁移设备；同一 seed 不保证不同设备随机数流相同，也不要求跨设备位级一致。
 - 主模型始终 eval；上下文门控在异常退出时也恢复。生成路径不启用 LoRA；仅支持顺序调用、无 padding 的等长 batch，不提供 serving 并发保证。
 - 每次 Probe 对普通 DynamicCache 的所有 K/V 在原设备 detach+clone，Probe 新 KV 只追加到副本。该策略复制成本为 O(前缀长度)，不是目标高效部署方案。拒绝 static、滑窗或 offload cache。
 - 本轮只发起一次单位置 MSE backward，不运行 optimizer、不生成 checkpoint、不开展数据集训练或评估。合成 outcome 仅作梯度夹具，不能解释为真实数学正确性。

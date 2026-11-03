@@ -42,14 +42,15 @@ def main():
     settings = {"lora_rank": 2, "lora_scaling": 1, "lora_targets": ["q_proj", "k_proj", "v_proj"],
                 "probe_init_token_id": 1, "head": "32 -> SiLU -> 32 -> SiLU -> 1 -> sigmoid",
                 "train_probe_embedding": True, "cache_isolation": "detached full clone on same device",
-                "warmup_iterations": 3, "timing_iterations": 10, "optimizer_steps": 0}
+                "warmup_iterations": 3, "timing_iterations": 10, "optimizer_steps": 0,
+                "initialization_device": "cpu_before_device_transfer"}
     write_json(directory / "probe_config.json", settings)
     model_config = LlamaConfig(vocab_size=32, hidden_size=32, intermediate_size=64,
                                num_hidden_layers=2, num_attention_heads=4, num_key_value_heads=2,
                                max_position_embeddings=64, attention_dropout=0.0)
     model_config._attn_implementation = "eager"
-    backbone = LlamaForCausalLM(model_config).to(device).eval()
-    probe = SingleKVProbe(backbone, rank=settings["lora_rank"], init_token_id=1)
+    backbone = LlamaForCausalLM(model_config).eval()
+    probe = SingleKVProbe(backbone, rank=settings["lora_rank"], init_token_id=1).to(device)
     write_json(directory / "model_config.json", model_config.to_dict())
     dataset = {"name": "synthetic_probe_gradient_fixture", "version": 1, "prompt_ids": [1, 2],
                "response_ids": [3, 4, 5, 6], "prefix_response_position": 2,
