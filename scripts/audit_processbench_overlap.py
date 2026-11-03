@@ -40,7 +40,7 @@ def main():
             'git':git_state(),'config':cfg,'selected_sha256':sha256_file(args.selected),
             'selected_roots':{k:len(v) for k,v in selected.items()},'partitions':partitions,
             'method':'NFKC + whitespace collapse + casefold + SHA256; exact normalized text only',
-            'benchmark_labels_accessed':False,'limitations':'Does not detect semantic paraphrases or pretraining contamination',
+            'benchmark_labels_used':False,'limitations':'Does not detect semantic paraphrases or pretraining contamination',
             'reproduce_argv':['python','scripts/audit_processbench_overlap.py','--config',args.config,'--selected',args.selected,'--raw-dir',args.raw_dir,'--output',args.output]}
     write_json(out,result)
     print(json.dumps(result,indent=2))
