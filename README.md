@@ -55,3 +55,5 @@ uv run --locked state-inference smoke --config configs/smoke.yaml
 PRM800K 小子集训练架构、标签过滤、资源边界与运行命令见 [训练设计](docs/prm800k_pilot.md)。
 
 单 Probe 的多随机种子、数据偏差及预训练/随机骨干对照见 [诊断报告](reports/prm800k_diagnostics.md)。
+
+扩大原题、同前缀配对及独立校准/测试实验的预设协议见 [扩展实验方案](docs/prm800k_expanded.md)。

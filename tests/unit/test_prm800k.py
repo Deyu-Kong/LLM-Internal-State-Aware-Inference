@@ -116,3 +116,21 @@ def test_weighted_bce_odds_inversion():
     assert undo_positive_class_weight(1.0, 0.5) == 1
     with pytest.raises(ValueError):
         undo_positive_class_weight(0.5, 0)
+
+
+def test_expanded_selection_excludes_prior_and_keeps_pairs():
+    from state_inference.data.expanded import select_expanded
+    class Tokenizer:
+        def encode(self, text, add_special_tokens=True): return list(range(len(text.split())))
+    rows=[]
+    for i in range(9):
+        for label in (0,1):
+            rows.append({'root_id':f'prm800k:{i}', 'sample_id':f'{i}-{label}', 'problem':f'problem {i}',
+                         'prefix_steps':['shared'], 'candidate_step':f'candidate {label}', 'label':label, 'step_index':1})
+    selected, removed, assignments=select_expanded(rows,Tokenizer(),{'prm800k:0'},{'1'},calibration_roots=2,test_roots=2)
+    assert not removed and len(assignments)==7
+    assert 'prm800k:0' not in assignments and 'prm800k:1' not in assignments
+    for root in assignments:
+        group=[r for r in selected if r['root_id']==root]
+        assert {r['label'] for r in group}=={0,1}
+        assert len({r['split'] for r in group})==1
