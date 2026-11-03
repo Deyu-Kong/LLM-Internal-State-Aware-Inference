@@ -31,6 +31,7 @@ def fast_auc(labels, scores):
 def analyze(run_dirs, iterations=500):
     references=None
     output=[]
+    run_scores={}
     for directory in map(Path,run_dirs):
         rows=read_jsonl(directory/'test_samples.jsonl')
         predictions={x['sample_id']:x for x in read_jsonl(directory/'test_predictions.jsonl')}
@@ -52,6 +53,7 @@ def analyze(run_dirs, iterations=500):
         scores=[predictions[r['sample_id']]['raw_score'] for r in rows]
         base=[predictions[r['sample_id']]['length_position_score'] for r in rows]
         labels=[r['label'] for r in rows]
+        run_scores[directory.name]=scores
         def pair_value(p,q):return float(p>q)+0.5*float(p==q)
         rng=random.Random(994)
         roots=sorted(root_indexes);auc_deltas=[];pair_deltas=[]
@@ -72,7 +74,28 @@ def analyze(run_dirs, iterations=500):
                        'root_bootstrap_95pct_auroc_delta':interval(auc_deltas),
                        'root_bootstrap_95pct_pair_accuracy_delta':interval(pair_deltas),
                        'matched_pair_roots':len(pairs_by_root),'bootstrap_replicates':len(auc_deltas)})
-    return {'runs':output,'note':'Exploratory root-cluster bootstrap on the same held-out roots; not independent across model seeds'}
+    data_size_control=None
+    full=run_scores.get('prm800k-expanded-seed42')
+    small=run_scores.get('prm800k-expanded-train200-control')
+    if full is not None and small is not None:
+        rng=random.Random(995)
+        roots=sorted(root_indexes);deltas=[];pair_deltas=[]
+        for _ in range(iterations):
+            drawn=[rng.choice(roots) for _ in roots]
+            indexes=[i for root in drawn for i in root_indexes[root]]
+            ys=[labels[i] for i in indexes]
+            if len(set(ys))==2:
+                deltas.append(fast_auc(ys,[full[i] for i in indexes])-fast_auc(ys,[small[i] for i in indexes]))
+            pairs=[pair for root in drawn for pair in pairs_by_root[root]]
+            if pairs:pair_deltas.append(statistics.mean(pair_value(full[a],full[b])-pair_value(small[a],small[b]) for a,b in pairs))
+        data_size_control={'comparison':'356 minus 200 train roots, same held-out data and 300 updates',
+                           'auroc_delta':fast_auc(labels,full)-fast_auc(labels,small),
+                           'root_bootstrap_95pct_auroc_delta':interval(deltas),
+                           'root_bootstrap_95pct_pair_accuracy_delta':interval(pair_deltas),
+                           'bootstrap_replicates':len(deltas),
+                           'note':'One seed, fixed budget; smaller run uses full-training-cohort class proportion'}
+    return {'runs':output,'data_size_control':data_size_control,
+            'note':'Exploratory root-cluster bootstrap on the same held-out roots; not independent across model seeds'}
 
 
 def main():
