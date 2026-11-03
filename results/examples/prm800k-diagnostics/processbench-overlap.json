@@ -1,0 +1,76 @@
+{
+  "status": "success",
+  "timestamp": "2026-11-03T08:35:19.382320+00:00",
+  "runtime_seconds": 0.10425460900296457,
+  "git": {
+    "commit": "b5e078135e7ecea3cbfac8a2d739501cdab6a582",
+    "dirty": false
+  },
+  "config": {
+    "revision": "3bdcd5371ed567559a78f559c01c13a6deee7604",
+    "files": {
+      "gsm8k.json": "fb1c59dfd1e83e1c5a48dbe598db27e4bc0b8bc524a09445f2d4b69178f61349",
+      "math.json": "60cb0d7a69cbec98d43cf50855b9b7e7294599c3c9a24bdd031abd18c3b6b136",
+      "olympiadbench.json": "e9d801c9f3c03f949adbfa08e90cb21ad85c0b9224bc5e98326f8215c218aa55",
+      "omnimath.json": "e8d7cf4512c82168dae2fe48b1718069a3002e7910af1d180a27ee0d9948ba47"
+    }
+  },
+  "selected_sha256": "b75e9360ef204a565755c48d742e36ac4b6ab02a3e28cefc76fe8d747f8d7a5e",
+  "selected_roots": {
+    "train": 200,
+    "validation": 50
+  },
+  "partitions": {
+    "gsm8k.json": {
+      "records": 400,
+      "unique_questions": 375,
+      "sha256": "fb1c59dfd1e83e1c5a48dbe598db27e4bc0b8bc524a09445f2d4b69178f61349",
+      "overlap_roots": {
+        "train": 0,
+        "validation": 0
+      }
+    },
+    "math.json": {
+      "records": 1000,
+      "unique_questions": 955,
+      "sha256": "60cb0d7a69cbec98d43cf50855b9b7e7294599c3c9a24bdd031abd18c3b6b136",
+      "overlap_roots": {
+        "train": 0,
+        "validation": 0
+      }
+    },
+    "olympiadbench.json": {
+      "records": 1000,
+      "unique_questions": 561,
+      "sha256": "e9d801c9f3c03f949adbfa08e90cb21ad85c0b9224bc5e98326f8215c218aa55",
+      "overlap_roots": {
+        "train": 0,
+        "validation": 0
+      }
+    },
+    "omnimath.json": {
+      "records": 1000,
+      "unique_questions": 951,
+      "sha256": "e8d7cf4512c82168dae2fe48b1718069a3002e7910af1d180a27ee0d9948ba47",
+      "overlap_roots": {
+        "train": 0,
+        "validation": 0
+      }
+    }
+  },
+  "method": "NFKC + whitespace collapse + casefold + SHA256; exact normalized text only",
+  "benchmark_labels_used": false,
+  "limitations": "Does not detect semantic paraphrases or pretraining contamination",
+  "reproduce_argv": [
+    "python",
+    "scripts/audit_processbench_overlap.py",
+    "--config",
+    "configs/datasets/processbench_audit.yaml",
+    "--selected",
+    "results/examples/prm800k-pilot/selected_ids.jsonl",
+    "--raw-dir",
+    "data/raw/processbench/3bdcd5371ed567559a78f559c01c13a6deee7604",
+    "--output",
+    "results/prm800k-pilot/processbench-overlap-v2.json"
+  ]
+}

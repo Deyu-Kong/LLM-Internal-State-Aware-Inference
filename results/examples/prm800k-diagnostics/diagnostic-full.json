@@ -1,0 +1,284 @@
+{
+  "validation_samples": 192,
+  "validation_roots": 50,
+  "by_label": {
+    "0": {
+      "samples": 46,
+      "median_input_tokens": 222.0,
+      "mean_input_tokens": 247.54347826086956,
+      "median_step_index": 5.0
+    },
+    "1": {
+      "samples": 146,
+      "median_input_tokens": 146.5,
+      "mean_input_tokens": 175.68493150684932,
+      "median_step_index": 3.0
+    }
+  },
+  "prefix_groups": 170,
+  "mixed_label_prefix_groups": 8,
+  "runs": [
+    {
+      "run": "prm800k-pilot-001",
+      "validation": {
+        "n": 192,
+        "positives": 146,
+        "negatives": 46,
+        "auroc": 0.6121203097081597,
+        "average_precision": 0.8110626284896013,
+        "f1_at_0_5": 0.7972027972027972,
+        "accuracy_at_0_5": 0.6979166666666666,
+        "brier": 0.24696285665800752,
+        "bce": 0.6870694242651493
+      },
+      "weight_adjusted_validation": {
+        "n": 192,
+        "positives": 146,
+        "negatives": 46,
+        "auroc": 0.6121203097081597,
+        "average_precision": 0.8110626284896013,
+        "f1_at_0_5": 0.863905325443787,
+        "accuracy_at_0_5": 0.7604166666666666,
+        "brier": 0.18439232196741587,
+        "bce": 0.5561908744873001
+      },
+      "weight_adjustment_note": "Analytical inversion of training class weight; assumes ideal weighted-risk optimum and does not establish calibration",
+      "baseline": {
+        "n": 192,
+        "positives": 146,
+        "negatives": 46,
+        "auroc": 0.6554496724240619,
+        "average_precision": 0.8490429490581116,
+        "f1_at_0_5": 0.8571428571428571,
+        "accuracy_at_0_5": 0.75,
+        "brier": 0.17453336376118891,
+        "bce": 0.5287709214019212
+      },
+      "paired_candidate_count": 12,
+      "paired_candidate_accuracy": 0.5,
+      "auroc_delta_vs_length": -0.043329362715902264,
+      "root_bootstrap_95pct_delta": [
+        -0.17613822469701934,
+        0.0785070785070785
+      ],
+      "bootstrap_replicates": 500,
+      "note": "Exploratory root-cluster bootstrap, not a formal test"
+    },
+    {
+      "run": "prm800k-pilot-modelseed-43",
+      "validation": {
+        "n": 192,
+        "positives": 146,
+        "negatives": 46,
+        "auroc": 0.6497915425848719,
+        "average_precision": 0.8348134613005186,
+        "f1_at_0_5": 0.863905325443787,
+        "accuracy_at_0_5": 0.7604166666666666,
+        "brier": 0.20713745801356565,
+        "bce": 0.6063402670131078
+      },
+      "weight_adjusted_validation": {
+        "n": 192,
+        "positives": 146,
+        "negatives": 46,
+        "auroc": 0.6497915425848719,
+        "average_precision": 0.8348134613005186,
+        "f1_at_0_5": 0.863905325443787,
+        "accuracy_at_0_5": 0.7604166666666666,
+        "brier": 0.1806412236516561,
+        "bce": 0.5462138612853932
+      },
+      "weight_adjustment_note": "Analytical inversion of training class weight; assumes ideal weighted-risk optimum and does not establish calibration",
+      "baseline": {
+        "n": 192,
+        "positives": 146,
+        "negatives": 46,
+        "auroc": 0.6554496724240619,
+        "average_precision": 0.8490429490581116,
+        "f1_at_0_5": 0.8571428571428571,
+        "accuracy_at_0_5": 0.75,
+        "brier": 0.17453336376118891,
+        "bce": 0.5287709214019212
+      },
+      "paired_candidate_count": 12,
+      "paired_candidate_accuracy": 0.6666666666666666,
+      "auroc_delta_vs_length": -0.005658129839190007,
+      "root_bootstrap_95pct_delta": [
+        -0.10997596153846145,
+        0.09201869806094187
+      ],
+      "bootstrap_replicates": 500,
+      "note": "Exploratory root-cluster bootstrap, not a formal test"
+    },
+    {
+      "run": "prm800k-pilot-modelseed-44",
+      "validation": {
+        "n": 192,
+        "positives": 146,
+        "negatives": 46,
+        "auroc": 0.6736152471709351,
+        "average_precision": 0.8550848825293664,
+        "f1_at_0_5": 0.0,
+        "accuracy_at_0_5": 0.23958333333333334,
+        "brier": 0.40332547470065117,
+        "bce": 1.023112851872875
+      },
+      "weight_adjusted_validation": {
+        "n": 192,
+        "positives": 146,
+        "negatives": 46,
+        "auroc": 0.6736152471709351,
+        "average_precision": 0.8550848825293664,
+        "f1_at_0_5": 0.3783783783783784,
+        "accuracy_at_0_5": 0.4010416666666667,
+        "brier": 0.2518905308802984,
+        "bce": 0.6969275466122329
+      },
+      "weight_adjustment_note": "Analytical inversion of training class weight; assumes ideal weighted-risk optimum and does not establish calibration",
+      "baseline": {
+        "n": 192,
+        "positives": 146,
+        "negatives": 46,
+        "auroc": 0.6554496724240619,
+        "average_precision": 0.8490429490581116,
+        "f1_at_0_5": 0.8571428571428571,
+        "accuracy_at_0_5": 0.75,
+        "brier": 0.17453336376118891,
+        "bce": 0.5287709214019212
+      },
+      "paired_candidate_count": 12,
+      "paired_candidate_accuracy": 0.6666666666666666,
+      "auroc_delta_vs_length": 0.018165574746873192,
+      "root_bootstrap_95pct_delta": [
+        -0.08756048072420797,
+        0.1194074074074074
+      ],
+      "bootstrap_replicates": 500,
+      "note": "Exploratory root-cluster bootstrap, not a formal test"
+    },
+    {
+      "run": "prm800k-control-pretrained-42",
+      "validation": {
+        "n": 192,
+        "positives": 146,
+        "negatives": 46,
+        "auroc": 0.6121203097081597,
+        "average_precision": 0.8110626284896013,
+        "f1_at_0_5": 0.7972027972027972,
+        "accuracy_at_0_5": 0.6979166666666666,
+        "brier": 0.24696285665800752,
+        "bce": 0.6870694242651493
+      },
+      "weight_adjusted_validation": {
+        "n": 192,
+        "positives": 146,
+        "negatives": 46,
+        "auroc": 0.6121203097081597,
+        "average_precision": 0.8110626284896013,
+        "f1_at_0_5": 0.863905325443787,
+        "accuracy_at_0_5": 0.7604166666666666,
+        "brier": 0.18439232196741587,
+        "bce": 0.5561908744873001
+      },
+      "weight_adjustment_note": "Analytical inversion of training class weight; assumes ideal weighted-risk optimum and does not establish calibration",
+      "baseline": {
+        "n": 192,
+        "positives": 146,
+        "negatives": 46,
+        "auroc": 0.6554496724240619,
+        "average_precision": 0.8490429490581116,
+        "f1_at_0_5": 0.8571428571428571,
+        "accuracy_at_0_5": 0.75,
+        "brier": 0.17453336376118891,
+        "bce": 0.5287709214019212
+      },
+      "paired_candidate_count": 12,
+      "paired_candidate_accuracy": 0.5,
+      "auroc_delta_vs_length": -0.043329362715902264,
+      "root_bootstrap_95pct_delta": [
+        -0.17613822469701934,
+        0.0785070785070785
+      ],
+      "bootstrap_replicates": 500,
+      "note": "Exploratory root-cluster bootstrap, not a formal test"
+    },
+    {
+      "run": "prm800k-control-random-42",
+      "validation": {
+        "n": 192,
+        "positives": 146,
+        "negatives": 46,
+        "auroc": 0.6527695056581299,
+        "average_precision": 0.8398727029583295,
+        "f1_at_0_5": 0.7737226277372263,
+        "accuracy_at_0_5": 0.6770833333333334,
+        "brier": 0.22305614410895633,
+        "bce": 0.638345325533625
+      },
+      "weight_adjusted_validation": {
+        "n": 192,
+        "positives": 146,
+        "negatives": 46,
+        "auroc": 0.6527695056581299,
+        "average_precision": 0.8398727029583295,
+        "f1_at_0_5": 0.863905325443787,
+        "accuracy_at_0_5": 0.7604166666666666,
+        "brier": 0.1758499654687629,
+        "bce": 0.53354326058405
+      },
+      "weight_adjustment_note": "Analytical inversion of training class weight; assumes ideal weighted-risk optimum and does not establish calibration",
+      "baseline": {
+        "n": 192,
+        "positives": 146,
+        "negatives": 46,
+        "auroc": 0.6554496724240619,
+        "average_precision": 0.8490429490581116,
+        "f1_at_0_5": 0.8571428571428571,
+        "accuracy_at_0_5": 0.75,
+        "brier": 0.17453336376118891,
+        "bce": 0.5287709214019212
+      },
+      "paired_candidate_count": 12,
+      "paired_candidate_accuracy": 0.6666666666666666,
+      "auroc_delta_vs_length": -0.0026801667659320794,
+      "root_bootstrap_95pct_delta": [
+        -0.09602649006622521,
+        0.08160487425460194
+      ],
+      "bootstrap_replicates": 500,
+      "note": "Exploratory root-cluster bootstrap, not a formal test"
+    }
+  ],
+  "backbone_control": {
+    "metric": "pretrained_minus_random_auroc",
+    "delta": -0.040649195949970185,
+    "root_bootstrap_95pct_delta": [
+      -0.17521739130434777,
+      0.08833333333333326
+    ],
+    "replicates": 500,
+    "note": "One initialization seed; exploratory root-cluster bootstrap"
+  },
+  "git": {
+    "commit": "6ddf1a68ceda97aedcdfc49233e5f9d6994b9219",
+    "dirty": false
+  },
+  "timestamp": "2026-11-03T08:34:57.633052+00:00",
+  "runtime_seconds": 11.982342957053334,
+  "reproduce_argv": [
+    "python",
+    "scripts/analyze_probe_pilot.py",
+    "--run",
+    "results/prm800k-pilot/prm800k-pilot-001",
+    "--run",
+    "results/prm800k-pilot/prm800k-pilot-modelseed-43",
+    "--run",
+    "results/prm800k-pilot/prm800k-pilot-modelseed-44",
+    "--run",
+    "results/prm800k-pilot/prm800k-control-pretrained-42",
+    "--run",
+    "results/prm800k-pilot/prm800k-control-random-42",
+    "--output",
+    "results/prm800k-pilot/diagnostic-full.json"
+  ]
+}

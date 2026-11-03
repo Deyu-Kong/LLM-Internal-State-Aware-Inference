@@ -1,0 +1,106 @@
+{
+  "status": "success",
+  "optimizer_steps": 100,
+  "training_seconds": 53.97706717194524,
+  "trainable_parameters": 827137,
+  "changed_trainable_tensors": 187,
+  "class_pos_weight": 0.41784989833831787,
+  "before": {
+    "train": {
+      "n": 96,
+      "positives": 51,
+      "negatives": 45,
+      "auroc": 0.6344226579520698,
+      "average_precision": 0.7061899954704343,
+      "f1_at_0_5": 0.5432098765432098,
+      "accuracy_at_0_5": 0.6145833333333334,
+      "brier": 0.24865659450233044,
+      "bce": 0.6904601267638224
+    },
+    "validation": {
+      "n": 192,
+      "positives": 146,
+      "negatives": 46,
+      "auroc": 0.4918106015485408,
+      "average_precision": 0.7606365851462752,
+      "f1_at_0_5": 0.5069124423963134,
+      "accuracy_at_0_5": 0.4427083333333333,
+      "brier": 0.251417208885181,
+      "bce": 0.6959822710273835
+    }
+  },
+  "after": {
+    "train": {
+      "n": 96,
+      "positives": 51,
+      "negatives": 45,
+      "auroc": 0.725925925925926,
+      "average_precision": 0.761066525013225,
+      "f1_at_0_5": 0.6990291262135923,
+      "accuracy_at_0_5": 0.6770833333333334,
+      "brier": 0.2214278691457792,
+      "bce": 0.6349735460314593
+    },
+    "validation": {
+      "n": 192,
+      "positives": 146,
+      "negatives": 46,
+      "auroc": 0.6527695056581299,
+      "average_precision": 0.8398727029583295,
+      "f1_at_0_5": 0.7737226277372263,
+      "accuracy_at_0_5": 0.6770833333333334,
+      "brier": 0.22305614410895633,
+      "bce": 0.638345325533625
+    }
+  },
+  "train_eval_samples": 96,
+  "baselines": {
+    "constant": {
+      "n": 192,
+      "positives": 146,
+      "negatives": 46,
+      "auroc": 0.5,
+      "average_precision": 0.7604166666666666,
+      "f1_at_0_5": 0.863905325443787,
+      "accuracy_at_0_5": 0.7604166666666666,
+      "brier": 0.1852217479088254,
+      "bce": 0.5582098923663442
+    },
+    "length_position": {
+      "n": 192,
+      "positives": 146,
+      "negatives": 46,
+      "auroc": 0.6554496724240619,
+      "average_precision": 0.8490429490581116,
+      "f1_at_0_5": 0.8571428571428571,
+      "accuracy_at_0_5": 0.75,
+      "brier": 0.17453336376118891,
+      "bce": 0.5287709214019212
+    },
+    "length_position_fit": {
+      "mean": [
+        5.22817325592041,
+        1.5415732860565186
+      ],
+      "scale": [
+        0.5738781690597534,
+        0.7602556943893433
+      ],
+      "weight": [
+        -0.8177716135978699,
+        0.37163978815078735
+      ],
+      "bias": 0.9301139116287231
+    }
+  },
+  "checkpoint": {
+    "file": "checkpoint.pt",
+    "bytes": 3369868,
+    "sha256": "cd04ccc0fac56a183fcbed18bc4715fc794d5a96e8408d050a448f799e87c4be"
+  },
+  "checkpoint_reload_verified": true,
+  "single_seed_pilot": true,
+  "frozen_backbone_unchanged": true,
+  "generator_cache_unchanged": true,
+  "generator_logits_unchanged": true
+}
