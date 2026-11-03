@@ -18,7 +18,7 @@
 
 ```bash
 CUDA_VISIBLE_DEVICES='' OMP_NUM_THREADS=2 .venv/bin/python -m pytest -q
-OMP_NUM_THREADS=2 .venv/bin/python scripts/train_probe_expanded.py --config configs/wp1_probe/prm800k_expanded.yaml --preflight
+OMP_NUM_THREADS=2 .venv/bin/python scripts/train_probe_expanded.py --config configs/wp1_probe/prm800k_expanded_preflight.yaml --preflight
 OMP_NUM_THREADS=2 .venv/bin/python scripts/train_probe_expanded.py --config configs/wp1_probe/prm800k_expanded.yaml --gpu 0
 OMP_NUM_THREADS=2 .venv/bin/python scripts/train_probe_expanded.py --config configs/wp1_probe/prm800k_expanded_seed43.yaml --gpu 0
 OMP_NUM_THREADS=2 .venv/bin/python scripts/train_probe_expanded.py --config configs/wp1_probe/prm800k_expanded_seed44.yaml --gpu 0
