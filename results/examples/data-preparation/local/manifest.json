@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "experiment_id": "data-preparation-001",
+  "seed": 42,
+  "git": {
+    "commit": "1a10e3a38df60f1563cba4b5f24753ad4e3e9777",
+    "dirty": false
+  },
+  "environment": {
+    "python": "3.10.12",
+    "platform": "Linux-5.15.167.4-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+    "machine": "x86_64",
+    "processor": "x86_64",
+    "packages": {
+      "state-inference": "0.1.0",
+      "PyYAML": "6.0.3",
+      "torch": null,
+      "transformers": null,
+      "peft": null,
+      "datasets": null,
+      "vllm": null
+    },
+    "cuda_version": null,
+    "gpu_information": null,
+    "gpu_status": "not_used_cpu_data_preparation"
+  },
+  "config": {
+    "experiment_id": "data-preparation-001",
+    "seed": 42,
+    "output_dir": "results/data-preparation",
+    "processed_dir": "data/processed",
+    "raw_dir": "data/raw",
+    "synthetic_id_roots": 200,
+    "synthetic_ood_roots": 50,
+    "gsm8k": {
+      "revision": "3101c7d5072418e28b9008a6636bde82a006892c",
+      "sha256": {
+        "train.jsonl": "17f347dc51477c50d4efb83959dbb7c56297aba886e5544ee2aaed3024813465",
+        "test.jsonl": "3730d312f6e3440559ace48831e51066acaca737f6eabec99bccb9e4b3c39d14",
+        "LICENSE": "86bbb73e855821d7c401912fd4bf82e34313e6e3b6fd6f909f2b6cc9e209a53b"
+      }
+    }
+  },
+  "config_sha256": "2340bc9df1f6086f8efb313957af1a8c2dbe0f3978dc021b77528efbe86b38c3",
+  "model": null,
+  "tokenizer_revision": null,
+  "adapter_revision": null,
+  "started_at": "2026-11-03T07:49:54.967975+00:00",
+  "reproduce_argv": [
+    "python",
+    "scripts/prepare_data.py",
+    "--config",
+    "configs/datasets/prepare.yaml"
+  ],
+  "dataset_manifest": "dataset_manifest.json",
+  "status": "success",
+  "runtime_seconds": 1.0272550660010893,
+  "finished_at": "2026-11-03T07:49:55.995473+00:00"
+}

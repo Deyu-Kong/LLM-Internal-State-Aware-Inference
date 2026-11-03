@@ -1,0 +1,144 @@
+{
+  "schema_version": 1,
+  "synthetic_version": "synthetic-arithmetic-v1",
+  "gsm8k_revision": "3101c7d5072418e28b9008a6636bde82a006892c",
+  "sources": [
+    {
+      "name": "train.jsonl",
+      "path": "data/raw/gsm8k/3101c7d5072418e28b9008a6636bde82a006892c/train.jsonl",
+      "url": "https://raw.githubusercontent.com/openai/grade-school-math/3101c7d5072418e28b9008a6636bde82a006892c/grade_school_math/data/train.jsonl",
+      "revision": "3101c7d5072418e28b9008a6636bde82a006892c",
+      "sha256": "17f347dc51477c50d4efb83959dbb7c56297aba886e5544ee2aaed3024813465",
+      "bytes": 4166206
+    },
+    {
+      "name": "test.jsonl",
+      "path": "data/raw/gsm8k/3101c7d5072418e28b9008a6636bde82a006892c/test.jsonl",
+      "url": "https://raw.githubusercontent.com/openai/grade-school-math/3101c7d5072418e28b9008a6636bde82a006892c/grade_school_math/data/test.jsonl",
+      "revision": "3101c7d5072418e28b9008a6636bde82a006892c",
+      "sha256": "3730d312f6e3440559ace48831e51066acaca737f6eabec99bccb9e4b3c39d14",
+      "bytes": 749738
+    },
+    {
+      "name": "LICENSE",
+      "path": "data/raw/gsm8k/3101c7d5072418e28b9008a6636bde82a006892c/LICENSE",
+      "url": "https://raw.githubusercontent.com/openai/grade-school-math/3101c7d5072418e28b9008a6636bde82a006892c/LICENSE",
+      "revision": "3101c7d5072418e28b9008a6636bde82a006892c",
+      "sha256": "86bbb73e855821d7c401912fd4bf82e34313e6e3b6fd6f909f2b6cc9e209a53b",
+      "bytes": 1062
+    }
+  ],
+  "raw_gsm8k_counts": {
+    "train": 7473,
+    "test": 1319
+  },
+  "counts": {
+    "synthetic": {
+      "train": 640,
+      "validation": 80,
+      "test_id": 80,
+      "test_ood": 200
+    },
+    "gsm8k": {
+      "train": 6726,
+      "validation": 747,
+      "test_id": 1319,
+      "test_ood": 0
+    }
+  },
+  "files": [
+    {
+      "path": "data/processed/data-preparation-001/synthetic/train.jsonl",
+      "dataset": "synthetic",
+      "split": "train",
+      "rows": 640,
+      "bytes": 1282770,
+      "sha256": "7273d15cfba37e24bbf363e56e77dc476dc3fe9dcbe82b4d7fca28a042f78bb8"
+    },
+    {
+      "path": "data/processed/data-preparation-001/synthetic/validation.jsonl",
+      "dataset": "synthetic",
+      "split": "validation",
+      "rows": 80,
+      "bytes": 160798,
+      "sha256": "2be4ae2a33ce66f925f900cf5c123130e8461bf6c439908c8d9e3ead63d9103c"
+    },
+    {
+      "path": "data/processed/data-preparation-001/synthetic/test_id.jsonl",
+      "dataset": "synthetic",
+      "split": "test_id",
+      "rows": 80,
+      "bytes": 160589,
+      "sha256": "35007b7d886f7f379cdacb87fc1208b332b7de102a3aac94c60477910bb00f9f"
+    },
+    {
+      "path": "data/processed/data-preparation-001/synthetic/test_ood.jsonl",
+      "dataset": "synthetic",
+      "split": "test_ood",
+      "rows": 200,
+      "bytes": 568563,
+      "sha256": "ff2c8ab7d9d8afb57dd48e78fca4cd71d2c55a96783a63b0db25f8f60edfe132"
+    },
+    {
+      "path": "data/processed/data-preparation-001/gsm8k/train.jsonl",
+      "dataset": "gsm8k",
+      "split": "train",
+      "rows": 6726,
+      "bytes": 15147526,
+      "sha256": "6329c92d7f14ba82728a6f3f392602fb329e73304795c926f28eca0e01c951b3"
+    },
+    {
+      "path": "data/processed/data-preparation-001/gsm8k/validation.jsonl",
+      "dataset": "gsm8k",
+      "split": "validation",
+      "rows": 747,
+      "bytes": 1692312,
+      "sha256": "ca5e27c3aa3e0cf5ab63c8bcda28310757c8f653d3adc6563cd05531ddef0d46"
+    },
+    {
+      "path": "data/processed/data-preparation-001/gsm8k/test_id.jsonl",
+      "dataset": "gsm8k",
+      "split": "test_id",
+      "rows": 1319,
+      "bytes": 3016929,
+      "sha256": "51d2081542a8d204949f53541b1a6d125cf0d4ce6137ad16f94dbd1f4cdf2b93"
+    },
+    {
+      "path": "data/processed/data-preparation-001/gsm8k/test_ood.jsonl",
+      "dataset": "gsm8k",
+      "split": "test_ood",
+      "rows": 0,
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "split_policy": "seeded SHA256-ranked roots; synthetic ID 80/10/10; GSM8K official train 90/10; official test reserved; synthetic OOD held out",
+  "question_normalization": "Unicode NFKC + whitespace collapse + casefold; semantic near-duplicates not detected",
+  "audit": {
+    "unique_roots": 9042,
+    "unique_questions": 9042,
+    "samples": 9792
+  },
+  "excluded_training_overlaps": 0,
+  "split_assignments": {
+    "path": "data/processed/data-preparation-001/split_assignments.jsonl",
+    "sha256": "b45a19dc1bfe90d5803e934d3e530ae1d9e0a5520367f5766e04ca27c5f7d951"
+  },
+  "exclusion_file": {
+    "path": "data/processed/data-preparation-001/excluded_training_overlaps.jsonl",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "label_policy": "exact synthetic replay labels; GSM8K reference answer only, process/outcome predictions unknown; no pseudo-targets without generated traces/tokenizer",
+  "synthetic_variants": {
+    "correct": 250,
+    "arithmetic_error_propagated": 250,
+    "dependency_error": 250,
+    "recovered_error": 250
+  },
+  "synthetic_outcomes": {
+    "correct": 500,
+    "incorrect": 500
+  },
+  "tokenizer_revision": null,
+  "generated_by_llm": false
+}

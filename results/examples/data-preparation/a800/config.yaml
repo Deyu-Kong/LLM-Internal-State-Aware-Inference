@@ -1,0 +1,13 @@
+experiment_id: data-preparation-001
+gsm8k:
+  revision: 3101c7d5072418e28b9008a6636bde82a006892c
+  sha256:
+    LICENSE: 86bbb73e855821d7c401912fd4bf82e34313e6e3b6fd6f909f2b6cc9e209a53b
+    test.jsonl: 3730d312f6e3440559ace48831e51066acaca737f6eabec99bccb9e4b3c39d14
+    train.jsonl: 17f347dc51477c50d4efb83959dbb7c56297aba886e5544ee2aaed3024813465
+output_dir: results/data-preparation
+processed_dir: data/processed
+raw_dir: data/raw
+seed: 42
+synthetic_id_roots: 200
+synthetic_ood_roots: 50
