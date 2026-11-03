@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "experiment_id": "tiny-llama-state-capture",
+  "git": {
+    "commit": "1c42433f7458e4f6a79db9e1d5273e35ace8814d",
+    "dirty": false
+  },
+  "seed": 42,
+  "environment": {
+    "python": "3.12.13",
+    "platform": "Linux-6.8.0-111-generic-x86_64-with-glibc2.39",
+    "machine": "x86_64",
+    "processor": "x86_64",
+    "packages": {
+      "state-inference": "0.1.0",
+      "PyYAML": "6.0.3",
+      "torch": "2.11.0",
+      "transformers": "5.8.0",
+      "peft": null,
+      "datasets": null,
+      "vllm": "0.20.2"
+    },
+    "cuda_version": "13.0",
+    "gpu_information": null,
+    "gpu_status": "cpu_only"
+  },
+  "config": {
+    "experiment_id": "tiny-llama-state-capture",
+    "seed": 42,
+    "output_dir": "results/state-capture"
+  },
+  "config_sha256": "094689b4adc26028bbf301f54d06c49041197a1d35caf1a4a7d10756e6a4ab41",
+  "model": {
+    "name": "random_tiny_llama",
+    "revision": "model_config.json + seed + pinned transformers version",
+    "pretrained": false
+  },
+  "tokenizer_revision": null,
+  "adapter_revision": null,
+  "dataset_manifest": "dataset_manifest.json",
+  "batch_size": 1,
+  "input_length": 4,
+  "output_length": 4,
+  "sampling_parameters": {
+    "do_sample": false
+  },
+  "dtype": "float32",
+  "warmup_iterations": 0,
+  "benchmark": false,
+  "reproduce_argv": [
+    "python",
+    "scripts/check_state_capture.py",
+    "--config",
+    "configs/state_capture.yaml"
+  ],
+  "started_at": "2026-11-03T07:15:08.429952+00:00",
+  "status": "success",
+  "runtime_seconds": 0.020037495996803045,
+  "finished_at": "2026-11-03T07:15:08.450140+00:00",
+  "peak_gpu_memory_allocated_bytes": null
+}

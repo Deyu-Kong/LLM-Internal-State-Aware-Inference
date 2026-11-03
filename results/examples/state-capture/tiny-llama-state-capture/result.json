@@ -1,0 +1,30 @@
+{
+  "status": "success",
+  "tokens": [
+    27,
+    23,
+    18,
+    11
+  ],
+  "exact_logits_equal": true,
+  "exact_cache_equal": true,
+  "shapes": {
+    "logits": [
+      1,
+      1,
+      32
+    ],
+    "hidden": [
+      1,
+      1,
+      32
+    ],
+    "kv": [
+      1,
+      2,
+      2,
+      8
+    ]
+  },
+  "note": "Synthetic correctness check only; no model quality or speed claim"
+}

@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "experiment_id": "tiny-llama-gpu0-001",
+  "git": {
+    "commit": "1c42433f7458e4f6a79db9e1d5273e35ace8814d",
+    "dirty": false
+  },
+  "seed": 42,
+  "environment": {
+    "python": "3.12.13",
+    "platform": "Linux-6.8.0-111-generic-x86_64-with-glibc2.39",
+    "machine": "x86_64",
+    "processor": "x86_64",
+    "packages": {
+      "state-inference": "0.1.0",
+      "PyYAML": "6.0.3",
+      "torch": "2.11.0",
+      "transformers": "5.8.0",
+      "peft": null,
+      "datasets": null,
+      "vllm": "0.20.2"
+    },
+    "cuda_version": "13.0",
+    "gpu_information": {
+      "physical_index": 0,
+      "uuid": "GPU-80eb77e9-eaf8-ed01-a77e-8d67f41a971d",
+      "name": "NVIDIA A800-SXM4-80GB",
+      "driver": "595.58.03"
+    },
+    "gpu_status": "single_authorized_gpu"
+  },
+  "config": {
+    "experiment_id": "tiny-llama-gpu0-001",
+    "seed": 42,
+    "output_dir": "results/state-capture"
+  },
+  "config_sha256": "efcf5f7c06910f00ace32830ec8259ec803a9d304862cfca256c27a2091907f5",
+  "model": {
+    "name": "random_tiny_llama",
+    "revision": "model_config.json + seed + pinned transformers version",
+    "pretrained": false
+  },
+  "tokenizer_revision": null,
+  "adapter_revision": null,
+  "dataset_manifest": "dataset_manifest.json",
+  "batch_size": 1,
+  "input_length": 4,
+  "output_length": 4,
+  "sampling_parameters": {
+    "do_sample": false
+  },
+  "dtype": "float32",
+  "warmup_iterations": 0,
+  "benchmark": false,
+  "reproduce_argv": [
+    "python",
+    "scripts/check_state_capture.py",
+    "--config",
+    "configs/state_capture_gpu.yaml",
+    "--gpu",
+    "0"
+  ],
+  "started_at": "2026-11-03T07:15:13.097296+00:00",
+  "status": "success",
+  "runtime_seconds": 0.9636068060062826,
+  "finished_at": "2026-11-03T07:15:14.061301+00:00",
+  "peak_gpu_memory_allocated_bytes": 8622592
+}

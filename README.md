@@ -43,3 +43,5 @@ uv run --locked state-inference smoke --config configs/smoke.yaml
 真正的计算实验优先使用 `ssh a800`，备选 `ssh node32`。已在 a800 建立项目独立环境，状态采集检查详见 [运行文档](docs/state_capture.md)。仅允许物理 GPU 0、1；每次检查占用后按 UUID 限制可见设备。不得使用 GPU 2–7、终止他人进程或修改共享环境。长 GPU 作业前必须估计时间、显存与输出存储。
 
 详见 [实验规范](docs/experiment_protocol.md)、[数据规范](docs/dataset_protocol.md)、[本次报告](reports/first_task.md) 与 [完整研究计划](llm_internal_state_research_implementation_plan.md)。
+
+状态采集的实测结果见 [报告](reports/state_capture.md)，归档产物见 `results/examples/state-capture/`。

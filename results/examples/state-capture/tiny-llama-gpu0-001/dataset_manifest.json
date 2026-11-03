@@ -1,0 +1,14 @@
+{
+  "name": "synthetic_token_ids",
+  "version": 1,
+  "input_ids": [
+    [
+      1,
+      2,
+      3,
+      4
+    ]
+  ],
+  "split": "smoke",
+  "training": false
+}

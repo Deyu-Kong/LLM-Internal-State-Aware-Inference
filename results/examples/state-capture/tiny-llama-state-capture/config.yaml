@@ -1,0 +1,3 @@
+experiment_id: tiny-llama-state-capture
+output_dir: results/state-capture
+seed: 42
