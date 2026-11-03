@@ -100,3 +100,10 @@ def test_control_config_keeps_data_seed_and_changes_backbone():
     assert a['seed'] == b['seed'] == a['model_seed'] == b['model_seed'] == 42
     assert a['backbone_mode'] == 'pretrained'
     assert b['backbone_mode'] == 'random'
+
+
+def test_model_seed_is_independent_of_data_seed():
+    a = load_training_config('configs/wp1_probe/prm800k_modelseed_43.yaml')
+    b = load_training_config('configs/wp1_probe/prm800k_modelseed_44.yaml')
+    assert a['seed'] == b['seed'] == 42
+    assert (a['model_seed'], b['model_seed']) == (43, 44)

@@ -1,0 +1,94 @@
+"""Descriptive, root-aware diagnostics for repeated pilot runs; CPU only."""
+import argparse
+from collections import Counter, defaultdict
+import json
+import math
+from pathlib import Path
+import random
+import statistics
+from state_inference.cli import write_json
+from state_inference.data.preparation import read_jsonl
+from state_inference.metrics.binary import binary_metrics
+
+
+def summarize(run_dirs, iterations=500):
+    runs = []
+    reference_ids = None
+    for directory in map(Path, run_dirs):
+        samples = read_jsonl(directory / 'validation_samples.jsonl')
+        predictions = {r['sample_id']: r for r in read_jsonl(directory / 'validation_predictions.jsonl')}
+        result = json.loads((directory / 'result.json').read_text())
+        ids = [r['sample_id'] for r in samples]
+        if set(ids) != set(predictions) or (reference_ids is not None and ids != reference_ids):
+            raise ValueError('Validation samples differ across runs')
+        reference_ids = ids
+        for row in samples:
+            if row['label'] != predictions[row['sample_id']]['label']:
+                raise ValueError('Prediction label mismatch')
+        runs.append((directory, samples, predictions, result))
+    if not runs:
+        raise ValueError('At least one run required')
+    samples = runs[0][1]
+    groups = defaultdict(list)
+    for row in samples:
+        groups[(row['root_id'], tuple(row['prefix_steps']))].append(row)
+    pair_groups = [g for g in groups.values() if {x['label'] for x in g} == {0, 1}]
+    by_label = {}
+    for label in (0, 1):
+        rows = [r for r in samples if r['label'] == label]
+        by_label[str(label)] = {'samples': len(rows), 'median_input_tokens': statistics.median(len(r['input_ids']) for r in rows),
+                                'mean_input_tokens': statistics.mean(len(r['input_ids']) for r in rows),
+                                'median_step_index': statistics.median(r['step_index'] for r in rows)}
+    root_map = defaultdict(list)
+    for i,row in enumerate(samples):root_map[row['root_id']].append(i)
+    seed_results = []
+    for directory, rows, predictions, result in runs:
+        scores = [predictions[r['sample_id']]['trained_score'] for r in rows]
+        labels = [r['label'] for r in rows]
+        fit = result['baselines']['length_position_fit']
+        baseline = []
+        for r in rows:
+            x = [math.log1p(len(r['input_ids'])), math.log1p(r['step_index'])]
+            z = fit['bias'] + sum(w * (v-m)/s for w,v,m,s in zip(fit['weight'],x,fit['mean'],fit['scale']))
+            baseline.append(1/(1+math.exp(-z)))
+        pairs = []
+        pair_map = {r['sample_id']: predictions[r['sample_id']]['trained_score'] for r in rows}
+        for group in pair_groups:
+            for pos in (r for r in group if r['label'] == 1):
+                for neg in (r for r in group if r['label'] == 0):
+                    a,b=pair_map[pos['sample_id']],pair_map[neg['sample_id']]
+                    pairs.append(float(a>b)+0.5*float(a==b))
+        rng = random.Random(731)
+        roots = sorted(root_map)
+        deltas = []
+        for _ in range(iterations):
+            indexes = [i for _ in roots for i in root_map[rng.choice(roots)]]
+            ys = [labels[i] for i in indexes]
+            if len(set(ys)) != 2:continue
+            p = binary_metrics(ys,[scores[i] for i in indexes])['auroc']
+            q = binary_metrics(ys,[baseline[i] for i in indexes])['auroc']
+            deltas.append(p-q)
+        deltas.sort()
+        seed_results.append({'run': directory.name, 'validation': result['after']['validation'],
+                             'baseline': result['baselines']['length_position'],
+                             'paired_candidate_count': len(pairs), 'paired_candidate_accuracy': statistics.mean(pairs) if pairs else None,
+                             'auroc_delta_vs_length': result['after']['validation']['auroc']-result['baselines']['length_position']['auroc'],
+                             'root_bootstrap_95pct_delta': [deltas[int(.025*(len(deltas)-1))],deltas[int(.975*(len(deltas)-1))]] if deltas else None,
+                             'bootstrap_replicates': len(deltas), 'note': 'Exploratory root-cluster bootstrap, not a formal test'})
+    return {'validation_samples':len(samples),'validation_roots':len(root_map),'by_label':by_label,
+            'prefix_groups':len(groups),'mixed_label_prefix_groups':len(pair_groups), 'runs':seed_results}
+
+
+def main():
+    p=argparse.ArgumentParser(description=__doc__)
+    p.add_argument('--run', action='append', required=True)
+    p.add_argument('--output', required=True)
+    args=p.parse_args()
+    result=summarize(args.run)
+    out=Path(args.output)
+    if out.exists():raise FileExistsError(out)
+    out.parent.mkdir(parents=True,exist_ok=True)
+    write_json(out,result)
+    print(json.dumps(result,indent=2))
+
+if __name__=='__main__':main()
