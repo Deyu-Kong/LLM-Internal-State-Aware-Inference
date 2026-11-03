@@ -1,3 +1,8 @@
 # 脚本
 
-目前通过 `state-inference smoke` 提供统一入口。研究计划中的数据、训练与 benchmark 脚本将在对应里程碑实现，此处不提供无行为的占位脚本。
+- `state-inference smoke`：基础设施检查。
+- `check_state_capture.py`：微型模型只读状态采集。
+- `check_single_probe.py`：单 Probe forward/backward，无优化器更新。
+- `prepare_data.py`：CPU 准备固定版本 GSM8K 与受控合成算术，见 `docs/dataset_protocol.md`。
+
+训练、真实模型轨迹生成与 benchmark 脚本留待对应里程碑实现。

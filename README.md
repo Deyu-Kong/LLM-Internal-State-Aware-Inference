@@ -47,3 +47,5 @@ uv run --locked state-inference smoke --config configs/smoke.yaml
 状态采集的实测结果见 [报告](reports/state_capture.md)，归档产物见 `results/examples/state-capture/`。
 
 单 Probe 的 CPU/GPU 验证结果、初始化修正与已知缺口见 [报告](reports/single_probe.md)。
+
+数据准备已支持固定版本 GSM8K 参考解答和 1,000 条受控合成算术轨迹，切分、字段与精确运行命令见 [数据规范](docs/dataset_protocol.md)。此阶段仅使用 CPU，不生成模型轨迹或训练。
