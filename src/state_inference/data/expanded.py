@@ -45,3 +45,12 @@ def select_expanded(rows, tokenizer, excluded_roots, benchmark_fingerprints, see
         chosen.extend(rest[:max_per_root-len(chosen)])
         selected.extend(chosen)
     return selected, removed, assignments
+
+
+def limit_training_roots(rows, limit, seed):
+    """Limit training roots only, preserving calibration and test byte-for-byte."""
+    roots=sorted({r['root_id'] for r in rows if r['split']=='train'},key=lambda root:(rank(seed,root),root))
+    if type(limit) is not int or not 1<=limit<len(roots):
+        raise ValueError('Train root limit must select a strict nonempty subset')
+    keep=set(roots[:limit])
+    return [r for r in rows if r['split']!='train' or r['root_id'] in keep]

@@ -44,7 +44,7 @@ def main():
     if gpu is None:os.environ['CUDA_VISIBLE_DEVICES']=''
     import torch
     from transformers import AutoTokenizer,AutoModelForCausalLM
-    from state_inference.data.expanded import select_expanded
+    from state_inference.data.expanded import select_expanded,limit_training_roots
     from state_inference.kv_probe import SingleKVProbe
     from state_inference.kv_probe.single_probe import fork_dynamic_cache
     from state_inference.training.pilot import frozen_digest,prefix_cache,example_logits,evaluate,length_position_baseline,trainable_state,load_trainable_state
@@ -102,11 +102,7 @@ def main():
             if not full_positive or not full_negative:raise ValueError('Both labels required in full training cohort')
             full_pos_weight=full_negative/full_positive
             if 'train_root_limit' in cfg:
-                from state_inference.data.expanded import rank
-                train_roots=sorted({r['root_id'] for r in full_train},key=lambda root:(rank(cfg['seed'],root),root))
-                if cfg['train_root_limit']>=len(train_roots):raise ValueError('Train root limit must select a strict subset')
-                keep=set(train_roots[:cfg['train_root_limit']])
-                rows=[r for r in rows if r['split']!='train' or r['root_id'] in keep]
+                rows=limit_training_roots(rows,cfg['train_root_limit'],cfg['seed'])
             splits={name:[r for r in rows if r['split']==name] for name in ('train','calibration','test')}
             roots={name:{r['root_id'] for r in group} for name,group in splits.items()}
             assert not roots['train'] & roots['calibration'] and not roots['train'] & roots['test'] and not roots['calibration'] & roots['test']

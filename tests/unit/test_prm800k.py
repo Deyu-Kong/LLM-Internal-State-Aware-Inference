@@ -134,3 +134,14 @@ def test_expanded_selection_excludes_prior_and_keeps_pairs():
         group=[r for r in selected if r['root_id']==root]
         assert {r['label'] for r in group}=={0,1}
         assert len({r['split'] for r in group})==1
+
+
+def test_training_size_control_preserves_heldout_samples():
+    from state_inference.data.expanded import limit_training_roots
+    rows=[{'root_id':f'train{i}','split':'train','sample_id':str(i)} for i in range(5)]
+    rows += [{'root_id':'cal','split':'calibration','sample_id':'c'}, {'root_id':'test','split':'test','sample_id':'e'}]
+    subset=limit_training_roots(rows,2,42)
+    assert len([r for r in subset if r['split']=='train'])==2
+    assert [r for r in subset if r['split']!='train']==[r for r in rows if r['split']!='train']
+    assert subset==limit_training_roots(rows,2,42)
+    with pytest.raises(ValueError):limit_training_roots(rows,5,42)
