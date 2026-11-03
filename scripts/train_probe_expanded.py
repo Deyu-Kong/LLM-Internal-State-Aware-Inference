@@ -30,13 +30,14 @@ def main():
             'benchmark_config','benchmark_dir','model_config','output_dir','calibration_roots','test_roots',
             'max_per_root','max_tokens','rank','optimizer_steps','gradient_accumulation','learning_rate','max_wall_seconds'}
     import re
-    if not isinstance(cfg,dict) or set(cfg)!=fields or not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9_-]{0,79}',cfg['experiment_id']):
+    if not isinstance(cfg,dict) or not fields <= set(cfg) or set(cfg)-fields-{'train_root_limit'} or not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9_-]{0,79}',cfg['experiment_id']):
         raise ValueError('Invalid expanded config')
     limits={'seed':(0,2**32-1),'model_seed':(0,2**32-1),'calibration_roots':(1,200),'test_roots':(1,200),
             'max_per_root':(2,16),'max_tokens':(16,1024),'rank':(1,16),'optimizer_steps':(1,300),
             'gradient_accumulation':(1,8),'max_wall_seconds':(1,1800)}
     for k,(lo,hi) in limits.items():
         if type(cfg[k]) is not int or not lo<=cfg[k]<=hi:raise ValueError(f'Invalid {k}')
+    if 'train_root_limit' in cfg and (type(cfg['train_root_limit']) is not int or not 1<=cfg['train_root_limit']<=2000):raise ValueError('Invalid train_root_limit')
     if type(cfg['learning_rate']) not in (int,float) or not 0<cfg['learning_rate']<=0.01:raise ValueError('Invalid learning rate')
     if args.preflight and args.gpu is not None:parser.error('Preflight is CPU only')
     gpu=select_idle_gpu(args.gpu) if args.gpu is not None else None
@@ -95,6 +96,17 @@ def main():
             candidates,audit=extract_candidates(raw)
             rows,removed,assignments=select_expanded(candidates,tokenizer,excluded_roots,benchmark,cfg['seed'],
                 cfg['calibration_roots'],cfg['test_roots'],cfg['max_per_root'],cfg['max_tokens'])
+            full_train=[r for r in rows if r['split']=='train']
+            full_positive=sum(r['label'] for r in full_train)
+            full_negative=len(full_train)-full_positive
+            if not full_positive or not full_negative:raise ValueError('Both labels required in full training cohort')
+            full_pos_weight=full_negative/full_positive
+            if 'train_root_limit' in cfg:
+                from state_inference.data.expanded import rank
+                train_roots=sorted({r['root_id'] for r in full_train},key=lambda root:(rank(cfg['seed'],root),root))
+                if cfg['train_root_limit']>=len(train_roots):raise ValueError('Train root limit must select a strict subset')
+                keep=set(train_roots[:cfg['train_root_limit']])
+                rows=[r for r in rows if r['split']!='train' or r['root_id'] in keep]
             splits={name:[r for r in rows if r['split']==name] for name in ('train','calibration','test')}
             roots={name:{r['root_id'] for r in group} for name,group in splits.items()}
             assert not roots['train'] & roots['calibration'] and not roots['train'] & roots['test'] and not roots['calibration'] & roots['test']
@@ -109,7 +121,7 @@ def main():
                 'previous_selected_sha256':sha256_file(cfg['previous_selected']),'excluded_previous_roots':len(excluded_roots),
                 'benchmark_revision':benchmark_cfg['revision'],'benchmark_files':benchmark_cfg['files'],
                 'benchmark_usage':'question fingerprints only; no labels or scores','overlength_removed':len(removed),
-                'root_assignments':len(assignments),'selection':'fresh roots, deterministic pair-first capped by root, no truncation',
+                'root_assignments':len(assignments),'train_root_limit':cfg.get('train_root_limit'),'full_training_class_pos_weight':full_pos_weight,'selection':'fresh roots, deterministic pair-first capped by root, no truncation',
                 'model_input_fields':['problem','prefix_steps','candidate_step'],
                 'files':{p.name:{'sha256':sha256_file(p),'bytes':p.stat().st_size} for p in output.glob('*.jsonl') if p.name!='events.jsonl'}}
             write_json(output/'dataset_manifest.json',dm);emit('dataset_ready',counts=summary,overlength_removed=len(removed))
@@ -130,7 +142,7 @@ def main():
             else:
                 train=splits['train'];cal=splits['calibration'];test=splits['test']
                 pos=sum(r['label'] for r in train);neg=len(train)-pos
-                pos_weight=torch.tensor([neg/pos],device=device)
+                pos_weight=torch.tensor([full_pos_weight],device=device)
                 optimizer=torch.optim.AdamW([p for p in probe.parameters() if p.requires_grad],lr=cfg['learning_rate'],weight_decay=0)
                 rng=random.Random(cfg['model_seed']);order=[];offset=0;updates=0;sync();training_start=time.perf_counter()
                 for _ in range(cfg['optimizer_steps']):
@@ -175,7 +187,7 @@ def main():
                 write_jsonl(output/'test_predictions.jsonl',[{'sample_id':r['sample_id'],'root_id':r['root_id'],'label':r['label'],'raw_score':a,'calibrated_score':b,'length_position_score':c} for r,a,b,c in zip(test,test_scores,calibrated_scores,baseline_scores)])
                 result={'status':'success','optimizer_steps':updates,'training_seconds':training_seconds,
                     'trainable_parameters':sum(p.numel() for p in probe.parameters() if p.requires_grad),'changed_trainable_tensors':changed,
-                    'class_pos_weight':float(pos_weight.item()),'calibration_metrics':cal_metrics,'calibration':calibration,
+                    'class_pos_weight':float(pos_weight.item()),'class_pos_weight_source':'full_fresh_training_cohort','calibration_metrics':cal_metrics,'calibration':calibration,
                     'test_raw':test_metrics,'test_calibrated':calibrated_metrics,'length_position_baseline':length_baseline,
                     'length_position_fit':length_fit,'constant_baseline':constant,
                     'matched_pairs':{'groups':sum({y for y,_,_ in g}=={0,1} for g in pairgroups.values()),'pairs':len(pairs),'accuracy':sum(pairs)/len(pairs) if pairs else None,'length_position_accuracy':sum(baseline_pairs)/len(baseline_pairs) if baseline_pairs else None},
