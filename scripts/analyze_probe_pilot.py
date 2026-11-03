@@ -6,6 +6,9 @@ import math
 from pathlib import Path
 import random
 import statistics
+import time
+from datetime import datetime, timezone
+from state_inference.manifest import git_state
 from state_inference.cli import write_json
 from state_inference.data.preparation import read_jsonl
 from state_inference.metrics.binary import binary_metrics
@@ -84,7 +87,10 @@ def main():
     p.add_argument('--run', action='append', required=True)
     p.add_argument('--output', required=True)
     args=p.parse_args()
+    start=time.perf_counter()
     result=summarize(args.run)
+    result.update(git=git_state(),timestamp=datetime.now(timezone.utc).isoformat(),runtime_seconds=time.perf_counter()-start,
+                  reproduce_argv=["python","scripts/analyze_probe_pilot.py"] + sum((["--run",r] for r in args.run),[]) + ["--output",args.output])
     out=Path(args.output)
     if out.exists():raise FileExistsError(out)
     out.parent.mkdir(parents=True,exist_ok=True)
