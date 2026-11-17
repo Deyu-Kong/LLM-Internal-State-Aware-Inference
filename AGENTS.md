@@ -2,6 +2,12 @@
 
 Read `llm_internal_state_research_implementation_plan.md` before changing research methods. Implement one milestone at a time; do not implement WP1, WP2 and WP3 simultaneously. Never invent experimental results.
 
+## Completion and GitHub synchronization
+
+- The user requests a Git commit and timely push after each completed task. Commit only task-related changes and report the commit ID and push result; do not create empty commits.
+- The designated GitHub repository is `Deyu-Kong/LLM-Internal-State-Aware-Inference`. Use its configured SSH push URL; do not publish experiment changes to the authors' OTV upstream.
+- Standalone OTV experiment updates belong in `experiments/otv_active_probe_pilot/`. Keep large weights and raw traces out of Git; preserve lightweight evidence and provenance.
+
 ## Remote compute policy
 
 - Prefer `ssh a800`; fallback is `ssh node32`.

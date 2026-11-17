@@ -1,6 +1,6 @@
 # LLM Internal-State-Aware Inference
 
-毕业论文研究共享实验平台。已完成研究计划第 14 节的项目骨架与可复现基础设施，并增加微型模型内部状态采集验证。增加了依据论文的单 Probe forward/backward 检查（[研究说明](docs/otv_research.md)），尚未训练或完成官方 OTV 复现。WP1 多视角 KV Probe、WP2 预算感知验证、WP3 状态感知投机解码尚未实现。smoke 不加载模型、不下载数据、不调用 GPU。
+毕业论文研究共享实验平台。已完成研究计划第 14 节的项目骨架与可复现基础设施，并增加微型模型内部状态采集验证。增加了依据论文的单 Probe forward/backward 检查（[研究说明](docs/otv_research.md)），以及独立的 [OTV 重训 pilot](experiments/otv_active_probe_pilot/README.md)。后者在 node32 使用 Qwen2.5-Coder-1.5B-Instruct 比较主动 KV Probe 和参数匹配 hidden-state，尚未完成论文 Qwen3 数值复现。WP1 多视角 KV Probe、WP2 预算感知验证、WP3 状态感知投机解码尚未实现。smoke 不加载模型、不下载数据、不调用 GPU。
 
 ## 安装与运行
 

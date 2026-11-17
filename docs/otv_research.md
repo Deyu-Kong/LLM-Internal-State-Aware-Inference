@@ -19,6 +19,8 @@
 
 ## 官方代码可用性
 
+2026-11-17 更新：官方仓库现已可访问；已在 node32 完成 [独立 standalone OTV 重训 pilot](../experiments/otv_active_probe_pilot/docs/retraining_pilot_zh.md)，包含代码、参数匹配 hidden-state 对照、题级统计和 checkpoint 重载验证。该实验使用 Qwen2.5-Coder-1.5B-Instruct、单 seed 和小规模轨迹，不是论文 Qwen3 数值复现。下面的 404 为 2026-11-03 的历史访问记录；下文的独立微型实现选择仍描述此前里程碑，不代表本次 pilot 设置。
+
 2026-11-03，论文给出的 [GitHub 仓库](https://github.com/Multimedia-Analytics-Laboratory/OTV) 及其公开 API 均返回 404，`git ls-remote` 也未获取到版本。可能未公开、已移动或需要权限，不能据此断言仓库永久不存在。本次没有获得源码、commit、训练配置或 checkpoint，**不宣称完成官方代码研究或 OTV 结果复现**。
 
 待官方代码可访问后逐项核对：特殊 token 的初始化/保存、embedding 是否训练、head 隐层宽度与激活、LoRA rank/缩放/初始化、位置编码、padding、精度、并行 mask、缓存隔离、数据生成和评测聚合。不得把下述本地选择写成作者官方实现。

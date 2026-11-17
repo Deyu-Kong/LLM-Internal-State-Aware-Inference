@@ -1,0 +1,27 @@
+{
+  "stage": "hidden",
+  "model": "/data1/kdy/LLMs/Qwen2.5-Coder-1.5B-Instruct",
+  "output": "../runs/small-hidden-001",
+  "questions": null,
+  "traces": "../runs/small-traces-001",
+  "seed": 42,
+  "train_questions": 32,
+  "val_questions": 8,
+  "test_questions": 32,
+  "samples": 4,
+  "batch_size": 8,
+  "max_new_tokens": 768,
+  "mode": "otv",
+  "epochs": 3,
+  "probe_chunk_size": 128,
+  "head_dims": [
+    1060,
+    64
+  ],
+  "gradient_accumulation": 4,
+  "trainable_parameters": 1697189,
+  "otv_trainable_parameter_budget": 1697537,
+  "targets": "same dense linear targets as OTV",
+  "feature": "last token final-layer hidden state",
+  "scope": "single seed pilot; three-layer head; approximately parameter matched to full OTV"
+}

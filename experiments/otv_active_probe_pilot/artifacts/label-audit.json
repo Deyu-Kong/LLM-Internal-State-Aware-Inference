@@ -1,0 +1,25 @@
+{
+  "scope": "Four selected incorrect training examples; not a random audit or noise-rate estimate",
+  "checks": [
+    {
+      "case": "committee",
+      "expected": "295/323",
+      "check": "1 - 2*C(10,4)/C(20,4) = 295/323"
+    },
+    {
+      "case": "books",
+      "expected": "6",
+      "check": "20*(0.40-0.10) = 6"
+    },
+    {
+      "case": "haircuts",
+      "expected": "413",
+      "check": "7*(5*5+6*3+8*2) = 413"
+    },
+    {
+      "case": "prime_factors",
+      "expected": "15",
+      "check": "distinct prime factors of 315: 3+5+7 = 15"
+    }
+  ]
+}

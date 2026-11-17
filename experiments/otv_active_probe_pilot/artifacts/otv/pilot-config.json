@@ -1,0 +1,26 @@
+{
+  "stage": "train",
+  "model": "/data1/kdy/LLMs/Qwen2.5-Coder-1.5B-Instruct",
+  "output": "../runs/small-otv-001",
+  "questions": null,
+  "traces": "../runs/small-traces-001",
+  "seed": 42,
+  "train_questions": 32,
+  "val_questions": 8,
+  "test_questions": 32,
+  "samples": 4,
+  "batch_size": 8,
+  "max_new_tokens": 768,
+  "mode": "otv",
+  "epochs": 3,
+  "probe_chunk_size": 128,
+  "trainable_parameters": 1697537,
+  "target": "linear outcome-derived MSE",
+  "head_dims": [
+    128,
+    64
+  ],
+  "gradient_accumulation": 4,
+  "limitations": "single seed pilot; hidden baseline approximately matches total OTV trainable budget",
+  "metadata_annotation": "Corrected stale parameter-matching description after all models completed; no training setting or result changed. Original retained in pilot-config.original.json."
+}

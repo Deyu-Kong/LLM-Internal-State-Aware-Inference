@@ -1,0 +1,82 @@
+{
+  "sizes": {
+    "train": {
+      "traces": 176,
+      "questions": 52,
+      "correct": 72,
+      "incorrect": 104
+    },
+    "validation": {
+      "traces": 49,
+      "questions": 14,
+      "correct": 25,
+      "incorrect": 24
+    },
+    "test": {
+      "traces": 128,
+      "questions": 32,
+      "correct": 59,
+      "incorrect": 69
+    },
+    "test_in_domain": {
+      "traces": 39,
+      "questions": 13,
+      "correct": 13,
+      "incorrect": 26
+    }
+  },
+  "generation": {
+    "counts": {
+      "train": {
+        "questions": 55,
+        "total": 220,
+        "usable": 176,
+        "correct": 72,
+        "truncated": 33,
+        "extraction_failed": 11
+      },
+      "validation": {
+        "questions": 14,
+        "total": 56,
+        "usable": 49,
+        "correct": 25,
+        "truncated": 6,
+        "extraction_failed": 1
+      },
+      "test": {
+        "questions": 32,
+        "total": 128,
+        "usable": 128,
+        "correct": 59,
+        "truncated": 0,
+        "extraction_failed": 0
+      },
+      "test_in_domain": {
+        "questions": 16,
+        "total": 64,
+        "usable": 39,
+        "correct": 13,
+        "truncated": 22,
+        "extraction_failed": 3
+      }
+    },
+    "seconds": 363.5702939312905,
+    "peak_bytes": 4423319040
+  },
+  "hashes": {
+    "test-questions.jsonl": "5bbc541c4d1c1818bfdfea7f7c9d3f28d3fe4c78cf13252335ed032d73f6fdcf",
+    "test_in_domain-all.jsonl": "12f56811b943a7ef0a41d23a22670999132b921377a34e3fe6c93c1093baf2c5",
+    "train-questions.jsonl": "f418187da390591ff7790eb2340a1ff66e2d1dd644b4f1037a1b84d1fe9efabd",
+    "validation-all.jsonl": "f58999aaea890c1c6b47b95dd5cb59fb0158914ea20194884e60d97a01715f04",
+    "test-all.jsonl": "bb3c6a7e24f86fc56969f70e414ff1c64dfb534f2a3630502bf68df8fc2311be",
+    "test_in_domain-questions.jsonl": "7513341c53d164088d55519630f36b6ade77ae6ed1fd14463a8d52f3b48b0823",
+    "test.jsonl": "bb3c6a7e24f86fc56969f70e414ff1c64dfb534f2a3630502bf68df8fc2311be",
+    "train.jsonl": "59d2b4cc9de70c15d879d53add5ac0c7e1e803ec756b0fb70354444d4e1da8fa",
+    "validation.jsonl": "787a5bd33ba41ddea720a8a3abf94d562da99722cd539f36fc268465620029e8",
+    "validation-questions.jsonl": "4e029f18433d9d0c7c81fd03e61c03a268b15c293503e8cd42118b36628af424",
+    "test_in_domain.jsonl": "c169ddefbe2a7a978845ad452c4889149348c8c23a7d572d0167aefb8146733a",
+    "train-all.jsonl": "f5261271de9a68d930c95e7670cb2f96c2930508f09782c3460bca530b388ed9"
+  },
+  "frozen_before_training": true,
+  "model": "/data1/kdy/LLMs/Qwen2.5-Coder-1.5B-Instruct"
+}

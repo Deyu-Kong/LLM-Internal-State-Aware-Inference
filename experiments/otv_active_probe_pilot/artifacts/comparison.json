@@ -1,0 +1,842 @@
+[
+  {
+    "split": "test",
+    "prefix": "100%",
+    "n": 128,
+    "questions": 32,
+    "positives": 59,
+    "auroc": {
+      "otv": 0.7214443625644805,
+      "no_lora": 0.6644559076394007,
+      "hidden": 0.7270940800786048
+    },
+    "ci_status": "computed",
+    "otv_minus_baseline_95ci": {
+      "no_lora": [
+        -0.05270935960591128,
+        0.16936488169364883
+      ],
+      "hidden": [
+        -0.10862068965517246,
+        0.09899287644313437
+      ]
+    },
+    "mixed_outcome_questions": 22,
+    "mean_within_question_auroc": {
+      "otv": 0.696969696969697,
+      "no_lora": 0.662878787878788,
+      "hidden": 0.6515151515151515
+    },
+    "within_question_auroc_95ci": {
+      "otv": [
+        0.5492424242424243,
+        0.8333333333333333
+      ],
+      "no_lora": [
+        0.5,
+        0.8181818181818182
+      ],
+      "hidden": [
+        0.5113636363636364,
+        0.7954545454545454
+      ]
+    }
+  },
+  {
+    "split": "test",
+    "prefix": "25%",
+    "n": 128,
+    "questions": 32,
+    "positives": 59,
+    "auroc": {
+      "otv": 0.636698599852616,
+      "no_lora": 0.6588061901252763,
+      "hidden": 0.6681405060181773
+    },
+    "ci_status": "computed",
+    "otv_minus_baseline_95ci": {
+      "no_lora": [
+        -0.08958333333333335,
+        0.039408866995073955
+      ],
+      "hidden": [
+        -0.14396456256921375,
+        0.06424511984185821
+      ]
+    },
+    "mixed_outcome_questions": 22,
+    "mean_within_question_auroc": {
+      "otv": 0.48863636363636365,
+      "no_lora": 0.5681818181818182,
+      "hidden": 0.5492424242424243
+    },
+    "within_question_auroc_95ci": {
+      "otv": [
+        0.303030303030303,
+        0.6704545454545454
+      ],
+      "no_lora": [
+        0.40151515151515155,
+        0.7348484848484849
+      ],
+      "hidden": [
+        0.3901515151515152,
+        0.696969696969697
+      ]
+    }
+  },
+  {
+    "split": "test",
+    "prefix": "50%",
+    "n": 128,
+    "questions": 32,
+    "positives": 59,
+    "auroc": {
+      "otv": 0.6990911323999017,
+      "no_lora": 0.7067059690493737,
+      "hidden": 0.7388847948906903
+    },
+    "ci_status": "computed",
+    "otv_minus_baseline_95ci": {
+      "no_lora": [
+        -0.07545787545787541,
+        0.05551461557356918
+      ],
+      "hidden": [
+        -0.13284493284493282,
+        0.037390029325513274
+      ]
+    },
+    "mixed_outcome_questions": 22,
+    "mean_within_question_auroc": {
+      "otv": 0.625,
+      "no_lora": 0.6704545454545454,
+      "hidden": 0.6590909090909091
+    },
+    "within_question_auroc_95ci": {
+      "otv": [
+        0.4621212121212121,
+        0.7727272727272727
+      ],
+      "no_lora": [
+        0.5303030303030303,
+        0.8030303030303031
+      ],
+      "hidden": [
+        0.5227272727272727,
+        0.8030303030303031
+      ]
+    }
+  },
+  {
+    "split": "test",
+    "prefix": "75%",
+    "n": 128,
+    "questions": 32,
+    "positives": 59,
+    "auroc": {
+      "otv": 0.7243920412675019,
+      "no_lora": 0.6973716531564726,
+      "hidden": 0.6644559076394007
+    },
+    "ci_status": "computed",
+    "otv_minus_baseline_95ci": {
+      "no_lora": [
+        -0.017861635220125738,
+        0.0714460484462931
+      ],
+      "hidden": [
+        0.002343749999999978,
+        0.11119257086999024
+      ]
+    },
+    "mixed_outcome_questions": 22,
+    "mean_within_question_auroc": {
+      "otv": 0.7007575757575757,
+      "no_lora": 0.6439393939393939,
+      "hidden": 0.6590909090909091
+    },
+    "within_question_auroc_95ci": {
+      "otv": [
+        0.5492424242424243,
+        0.8409090909090909
+      ],
+      "no_lora": [
+        0.48863636363636365,
+        0.7916666666666667
+      ],
+      "hidden": [
+        0.5340909090909091,
+        0.7765151515151515
+      ]
+    }
+  },
+  {
+    "split": "test",
+    "prefix": "before_final_box",
+    "n": 128,
+    "questions": 32,
+    "positives": 59,
+    "auroc": {
+      "otv": 0.7337263571604028,
+      "no_lora": 0.650945713583886,
+      "hidden": 0.7563252272169
+    },
+    "ci_status": "computed",
+    "otv_minus_baseline_95ci": {
+      "no_lora": [
+        -0.019117647058823573,
+        0.19035967702471257
+      ],
+      "hidden": [
+        -0.0945054945054945,
+        0.046398046398046344
+      ]
+    },
+    "mixed_outcome_questions": 22,
+    "mean_within_question_auroc": {
+      "otv": 0.6325757575757576,
+      "no_lora": 0.6553030303030303,
+      "hidden": 0.696969696969697
+    },
+    "within_question_auroc_95ci": {
+      "otv": [
+        0.47348484848484845,
+        0.7727272727272727
+      ],
+      "no_lora": [
+        0.5151515151515151,
+        0.7916666666666667
+      ],
+      "hidden": [
+        0.5303030303030303,
+        0.8409090909090909
+      ]
+    }
+  },
+  {
+    "split": "test",
+    "prefix": "fixed32",
+    "n": 128,
+    "questions": 32,
+    "positives": 59,
+    "auroc": {
+      "otv": 0.5865880619012528,
+      "no_lora": 0.5895357406042742,
+      "hidden": 0.6052566936870548
+    },
+    "ci_status": "computed",
+    "otv_minus_baseline_95ci": {
+      "no_lora": [
+        -0.074951171875,
+        0.06871921182266005
+      ],
+      "hidden": [
+        -0.15706535778868508,
+        0.11572327044025155
+      ]
+    },
+    "mixed_outcome_questions": 22,
+    "mean_within_question_auroc": {
+      "otv": 0.5037878787878788,
+      "no_lora": 0.5303030303030303,
+      "hidden": 0.6136363636363636
+    },
+    "within_question_auroc_95ci": {
+      "otv": [
+        0.3522727272727273,
+        0.6666666666666666
+      ],
+      "no_lora": [
+        0.36363636363636365,
+        0.696969696969697
+      ],
+      "hidden": [
+        0.49621212121212116,
+        0.731060606060606
+      ]
+    }
+  },
+  {
+    "split": "test",
+    "prefix": "fixed64",
+    "n": 128,
+    "questions": 32,
+    "positives": 59,
+    "auroc": {
+      "otv": 0.6440677966101694,
+      "no_lora": 0.6489805944485384,
+      "hidden": 0.6892655367231638
+    },
+    "ci_status": "computed",
+    "otv_minus_baseline_95ci": {
+      "no_lora": [
+        -0.08458458458458462,
+        0.06973848069738475
+      ],
+      "hidden": [
+        -0.13738738738738732,
+        0.04694835680751164
+      ]
+    },
+    "mixed_outcome_questions": 22,
+    "mean_within_question_auroc": {
+      "otv": 0.6666666666666666,
+      "no_lora": 0.5909090909090909,
+      "hidden": 0.5492424242424243
+    },
+    "within_question_auroc_95ci": {
+      "otv": [
+        0.49621212121212116,
+        0.8219696969696969
+      ],
+      "no_lora": [
+        0.4318181818181818,
+        0.75
+      ],
+      "hidden": [
+        0.37878787878787884,
+        0.712121212121212
+      ]
+    }
+  },
+  {
+    "split": "test_in_domain",
+    "prefix": "100%",
+    "n": 39,
+    "questions": 13,
+    "positives": 13,
+    "auroc": {
+      "otv": 0.7810650887573964,
+      "no_lora": 0.8047337278106509,
+      "hidden": 0.742603550295858
+    },
+    "ci_status": "computed",
+    "otv_minus_baseline_95ci": {
+      "no_lora": [
+        -0.1637931034482759,
+        0.13533834586466165
+      ],
+      "hidden": [
+        -0.1428571428571428,
+        0.21885521885521886
+      ]
+    },
+    "mixed_outcome_questions": 4,
+    "mean_within_question_auroc": {
+      "otv": 0.3958333333333333,
+      "no_lora": 0.4583333333333333,
+      "hidden": 0.7708333333333334
+    },
+    "within_question_auroc_95ci": {
+      "otv": null,
+      "no_lora": null,
+      "hidden": null
+    }
+  },
+  {
+    "split": "test_in_domain",
+    "prefix": "25%",
+    "n": 39,
+    "questions": 13,
+    "positives": 13,
+    "auroc": {
+      "otv": 0.6390532544378699,
+      "no_lora": 0.5532544378698225,
+      "hidden": 0.6982248520710059
+    },
+    "ci_status": "computed",
+    "otv_minus_baseline_95ci": {
+      "no_lora": [
+        -0.02922077922077926,
+        0.2119341563786008
+      ],
+      "hidden": [
+        -0.2222222222222222,
+        0.09677419354838712
+      ]
+    },
+    "mixed_outcome_questions": 4,
+    "mean_within_question_auroc": {
+      "otv": 0.6458333333333334,
+      "no_lora": 0.3958333333333333,
+      "hidden": 0.5208333333333334
+    },
+    "within_question_auroc_95ci": {
+      "otv": null,
+      "no_lora": null,
+      "hidden": null
+    }
+  },
+  {
+    "split": "test_in_domain",
+    "prefix": "50%",
+    "n": 39,
+    "questions": 13,
+    "positives": 13,
+    "auroc": {
+      "otv": 0.7041420118343196,
+      "no_lora": 0.7514792899408284,
+      "hidden": 0.7840236686390533
+    },
+    "ci_status": "computed",
+    "otv_minus_baseline_95ci": {
+      "no_lora": [
+        -0.19897959183673475,
+        0.08333333333333337
+      ],
+      "hidden": [
+        -0.34090909090909094,
+        0.13571428571428568
+      ]
+    },
+    "mixed_outcome_questions": 4,
+    "mean_within_question_auroc": {
+      "otv": 0.5625,
+      "no_lora": 0.41666666666666663,
+      "hidden": 1.0
+    },
+    "within_question_auroc_95ci": {
+      "otv": null,
+      "no_lora": null,
+      "hidden": null
+    }
+  },
+  {
+    "split": "test_in_domain",
+    "prefix": "75%",
+    "n": 39,
+    "questions": 13,
+    "positives": 13,
+    "auroc": {
+      "otv": 0.6982248520710059,
+      "no_lora": 0.6775147928994083,
+      "hidden": 0.7603550295857988
+    },
+    "ci_status": "computed",
+    "otv_minus_baseline_95ci": {
+      "no_lora": [
+        -0.07189542483660127,
+        0.11328976034858385
+      ],
+      "hidden": [
+        -0.21600000000000008,
+        0.08749999999999991
+      ]
+    },
+    "mixed_outcome_questions": 4,
+    "mean_within_question_auroc": {
+      "otv": 0.6875,
+      "no_lora": 0.7916666666666666,
+      "hidden": 0.7916666666666666
+    },
+    "within_question_auroc_95ci": {
+      "otv": null,
+      "no_lora": null,
+      "hidden": null
+    }
+  },
+  {
+    "split": "test_in_domain",
+    "prefix": "before_final_box",
+    "n": 39,
+    "questions": 13,
+    "positives": 13,
+    "auroc": {
+      "otv": 0.8076923076923077,
+      "no_lora": 0.6331360946745562,
+      "hidden": 0.7899408284023669
+    },
+    "ci_status": "computed",
+    "otv_minus_baseline_95ci": {
+      "no_lora": [
+        0.0060606060606061,
+        0.31470588235294117
+      ],
+      "hidden": [
+        -0.15384615384615385,
+        0.23076923076923084
+      ]
+    },
+    "mixed_outcome_questions": 4,
+    "mean_within_question_auroc": {
+      "otv": 0.47916666666666663,
+      "no_lora": 0.75,
+      "hidden": 0.75
+    },
+    "within_question_auroc_95ci": {
+      "otv": null,
+      "no_lora": null,
+      "hidden": null
+    }
+  },
+  {
+    "split": "test_in_domain",
+    "prefix": "fixed32",
+    "n": 39,
+    "questions": 13,
+    "positives": 13,
+    "auroc": {
+      "otv": 0.4911242603550296,
+      "no_lora": 0.5207100591715976,
+      "hidden": 0.40236686390532544
+    },
+    "ci_status": "computed",
+    "otv_minus_baseline_95ci": {
+      "no_lora": [
+        -0.1742424242424242,
+        0.09285714285714286
+      ],
+      "hidden": [
+        -0.07773109243697479,
+        0.29370629370629364
+      ]
+    },
+    "mixed_outcome_questions": 4,
+    "mean_within_question_auroc": {
+      "otv": 0.8125,
+      "no_lora": 0.75,
+      "hidden": 0.625
+    },
+    "within_question_auroc_95ci": {
+      "otv": null,
+      "no_lora": null,
+      "hidden": null
+    }
+  },
+  {
+    "split": "test_in_domain",
+    "prefix": "fixed64",
+    "n": 39,
+    "questions": 13,
+    "positives": 13,
+    "auroc": {
+      "otv": 0.4970414201183432,
+      "no_lora": 0.4319526627218935,
+      "hidden": 0.5384615384615384
+    },
+    "ci_status": "computed",
+    "otv_minus_baseline_95ci": {
+      "no_lora": [
+        -0.16239316239316237,
+        0.28273809523809523
+      ],
+      "hidden": [
+        -0.24898785425101214,
+        0.19444444444444448
+      ]
+    },
+    "mixed_outcome_questions": 4,
+    "mean_within_question_auroc": {
+      "otv": 0.20833333333333331,
+      "no_lora": 0.5,
+      "hidden": 0.1875
+    },
+    "within_question_auroc_95ci": {
+      "otv": null,
+      "no_lora": null,
+      "hidden": null
+    }
+  },
+  {
+    "split": "validation",
+    "prefix": "100%",
+    "n": 49,
+    "questions": 14,
+    "positives": 25,
+    "auroc": {
+      "otv": 0.7416666666666667,
+      "no_lora": 0.7183333333333334,
+      "hidden": 0.8466666666666667
+    },
+    "ci_status": "computed",
+    "otv_minus_baseline_95ci": {
+      "no_lora": [
+        -0.12678571428571428,
+        0.15527950310559013
+      ],
+      "hidden": [
+        -0.21501014198782953,
+        -0.005291005291005235
+      ]
+    },
+    "mixed_outcome_questions": 9,
+    "mean_within_question_auroc": {
+      "otv": 0.7685185185185185,
+      "no_lora": 0.7314814814814814,
+      "hidden": 0.8240740740740741
+    },
+    "within_question_auroc_95ci": {
+      "otv": [
+        0.6574074074074073,
+        0.8796296296296297
+      ],
+      "no_lora": [
+        0.5833333333333334,
+        0.8703703703703703
+      ],
+      "hidden": [
+        0.6666666666666666,
+        0.9629629629629629
+      ]
+    }
+  },
+  {
+    "split": "validation",
+    "prefix": "25%",
+    "n": 49,
+    "questions": 14,
+    "positives": 25,
+    "auroc": {
+      "otv": 0.5033333333333333,
+      "no_lora": 0.5483333333333333,
+      "hidden": 0.585
+    },
+    "ci_status": "computed",
+    "otv_minus_baseline_95ci": {
+      "no_lora": [
+        -0.15789473684210525,
+        0.09265734265734266
+      ],
+      "hidden": [
+        -0.2218890554722639,
+        0.10344827586206895
+      ]
+    },
+    "mixed_outcome_questions": 9,
+    "mean_within_question_auroc": {
+      "otv": 0.6203703703703703,
+      "no_lora": 0.5277777777777778,
+      "hidden": 0.6481481481481481
+    },
+    "within_question_auroc_95ci": {
+      "otv": [
+        0.39814814814814814,
+        0.8425925925925926
+      ],
+      "no_lora": [
+        0.3333333333333333,
+        0.7037037037037037
+      ],
+      "hidden": [
+        0.4259259259259259,
+        0.8518518518518517
+      ]
+    }
+  },
+  {
+    "split": "validation",
+    "prefix": "50%",
+    "n": 49,
+    "questions": 14,
+    "positives": 25,
+    "auroc": {
+      "otv": 0.6933333333333334,
+      "no_lora": 0.7266666666666667,
+      "hidden": 0.6533333333333333
+    },
+    "ci_status": "computed",
+    "otv_minus_baseline_95ci": {
+      "no_lora": [
+        -0.15370370370370368,
+        0.08045977011494254
+      ],
+      "hidden": [
+        -0.06333333333333335,
+        0.1760869565217391
+      ]
+    },
+    "mixed_outcome_questions": 9,
+    "mean_within_question_auroc": {
+      "otv": 0.7962962962962963,
+      "no_lora": 0.8055555555555556,
+      "hidden": 0.6666666666666666
+    },
+    "within_question_auroc_95ci": {
+      "otv": [
+        0.6018518518518519,
+        0.9444444444444444
+      ],
+      "no_lora": [
+        0.6388888888888888,
+        0.9444444444444444
+      ],
+      "hidden": [
+        0.3333333333333333,
+        1.0
+      ]
+    }
+  },
+  {
+    "split": "validation",
+    "prefix": "75%",
+    "n": 49,
+    "questions": 14,
+    "positives": 25,
+    "auroc": {
+      "otv": 0.725,
+      "no_lora": 0.78,
+      "hidden": 0.7283333333333334
+    },
+    "ci_status": "computed",
+    "otv_minus_baseline_95ci": {
+      "no_lora": [
+        -0.1333333333333333,
+        0.015789473684210464
+      ],
+      "hidden": [
+        -0.08275862068965512,
+        0.07291666666666663
+      ]
+    },
+    "mixed_outcome_questions": 9,
+    "mean_within_question_auroc": {
+      "otv": 0.8055555555555556,
+      "no_lora": 0.8703703703703703,
+      "hidden": 0.7685185185185186
+    },
+    "within_question_auroc_95ci": {
+      "otv": [
+        0.6759259259259259,
+        0.925925925925926
+      ],
+      "no_lora": [
+        0.7407407407407407,
+        0.9629629629629629
+      ],
+      "hidden": [
+        0.5648148148148148,
+        0.925925925925926
+      ]
+    }
+  },
+  {
+    "split": "validation",
+    "prefix": "before_final_box",
+    "n": 49,
+    "questions": 14,
+    "positives": 25,
+    "auroc": {
+      "otv": 0.755,
+      "no_lora": 0.7283333333333334,
+      "hidden": 0.755
+    },
+    "ci_status": "computed",
+    "otv_minus_baseline_95ci": {
+      "no_lora": [
+        -0.11520737327188946,
+        0.1885714285714286
+      ],
+      "hidden": [
+        -0.11943319838056676,
+        0.11554621848739488
+      ]
+    },
+    "mixed_outcome_questions": 9,
+    "mean_within_question_auroc": {
+      "otv": 0.8333333333333334,
+      "no_lora": 0.7037037037037037,
+      "hidden": 0.8425925925925926
+    },
+    "within_question_auroc_95ci": {
+      "otv": [
+        0.7407407407407407,
+        0.9351851851851851
+      ],
+      "no_lora": [
+        0.462962962962963,
+        0.925925925925926
+      ],
+      "hidden": [
+        0.7222222222222222,
+        0.9629629629629629
+      ]
+    }
+  },
+  {
+    "split": "validation",
+    "prefix": "fixed32",
+    "n": 49,
+    "questions": 14,
+    "positives": 25,
+    "auroc": {
+      "otv": 0.52,
+      "no_lora": 0.5833333333333334,
+      "hidden": 0.5783333333333334
+    },
+    "ci_status": "computed",
+    "otv_minus_baseline_95ci": {
+      "no_lora": [
+        -0.13852813852813856,
+        0.008223684210526327
+      ],
+      "hidden": [
+        -0.2076190476190476,
+        0.07999999999999996
+      ]
+    },
+    "mixed_outcome_questions": 9,
+    "mean_within_question_auroc": {
+      "otv": 0.5648148148148148,
+      "no_lora": 0.5833333333333334,
+      "hidden": 0.6851851851851852
+    },
+    "within_question_auroc_95ci": {
+      "otv": [
+        0.3611111111111111,
+        0.7777777777777778
+      ],
+      "no_lora": [
+        0.4166666666666667,
+        0.7685185185185186
+      ],
+      "hidden": [
+        0.4444444444444444,
+        0.925925925925926
+      ]
+    }
+  },
+  {
+    "split": "validation",
+    "prefix": "fixed64",
+    "n": 49,
+    "questions": 14,
+    "positives": 25,
+    "auroc": {
+      "otv": 0.5566666666666666,
+      "no_lora": 0.6116666666666667,
+      "hidden": 0.5733333333333334
+    },
+    "ci_status": "computed",
+    "otv_minus_baseline_95ci": {
+      "no_lora": [
+        -0.1660714285714286,
+        0.059964726631393295
+      ],
+      "hidden": [
+        -0.16363636363636358,
+        0.1366666666666666
+      ]
+    },
+    "mixed_outcome_questions": 9,
+    "mean_within_question_auroc": {
+      "otv": 0.7407407407407408,
+      "no_lora": 0.7037037037037037,
+      "hidden": 0.8981481481481483
+    },
+    "within_question_auroc_95ci": {
+      "otv": [
+        0.537037037037037,
+        0.925925925925926
+      ],
+      "no_lora": [
+        0.5185185185185186,
+        0.8888888888888888
+      ],
+      "hidden": [
+        0.7962962962962963,
+        0.9722222222222222
+      ]
+    }
+  }
+]

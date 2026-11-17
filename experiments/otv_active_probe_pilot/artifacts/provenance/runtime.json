@@ -1,0 +1,13 @@
+{
+  "python": "3.12.9",
+  "base_environment_read_only": "/data1/kdy/anaconda3/envs/hpt",
+  "runtime": ".venv-runtime",
+  "versions": {
+    "torch": "2.6.0",
+    "transformers": "4.57.1",
+    "peft": "0.17.1",
+    "tokenizers": "0.22.2",
+    "safetensors": "0.8.0",
+    "accelerate": "1.16.0"
+  }
+}
